@@ -505,7 +505,10 @@
     seekBusy = false;
     if (pendingTime !== null) { var t = pendingTime; pendingTime = null; requestSeek(t); }
   });
-  video.addEventListener('error', function () { seekBusy = false; pendingTime = null; failVideo(); });
+  video.addEventListener('error', function () {
+    seekBusy = false; pendingTime = null;
+    if (!direktVersucht) direktLaden(); else failVideo();
+  });
 
   function updateCaptions(p) {
     for (var i = 0; i < bands.length; i++) {
@@ -557,6 +560,7 @@
     if (heroInit) return;
     heroInit = true;
     posterLayer.style.backgroundImage = "url('" + POSTER_URL + "')";
+    video.addEventListener('canplay', bereit, { once: true });
     var img = new Image();
     img.onload = startBlobFetch;
     img.onerror = startBlobFetch;
@@ -566,7 +570,21 @@
   function startBlobFetch() {
     if (blobStarted) return;
     blobStarted = true;
-    loadHeroBlob().catch(failVideo);
+    loadHeroBlob().catch(direktLaden);
+  }
+  function bereit() {
+    /* Direkt geladen und der Server erlaubt kein Springen im Video: dann tragen die Standbilder die Reise */
+    if (direktVersucht && !(video.seekable.length && video.seekable.end(video.seekable.length - 1) > 1)) { failVideo(); return; }
+    requestSeek(heroProgress() * video.duration);
+    stage.classList.add('video-ready');
+  }
+  /* Zweiter Versuch, falls das Laden als Ganzes nicht klappt: die Datei direkt abspielen */
+  var direktVersucht = false;
+  function direktLaden() {
+    if (direktVersucht) { failVideo(); return; }
+    direktVersucht = true;
+    video.src = VIDEO_URL;
+    video.load();
   }
   function loadHeroBlob() {
     if (!window.fetch || !window.AbortController) return Promise.reject(new Error('kein fetch'));
@@ -597,10 +615,6 @@
         ring.style.setProperty('--ld', 0);
         video.src = URL.createObjectURL(new Blob(chunks, { type: 'video/mp4' }));
         video.load();
-        video.addEventListener('canplay', function () {
-          requestSeek(heroProgress() * video.duration);
-          stage.classList.add('video-ready');
-        }, { once: true });
       });
     });
   }
