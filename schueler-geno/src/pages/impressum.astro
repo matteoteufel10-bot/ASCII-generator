@@ -1,10 +1,11 @@
 ---
 import Basis from '../layouts/Basis.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
 import Platzhalter from '../components/Platzhalter.astro';
 ---
 <Basis titel="Impressum" schmal>
+  <Seitenkopf slot="buehne" dachzeile="Rechtliches" titel="Impressum" />
   <div class="text">
-    <h1>Impressum</h1>
     <Platzhalter>
       Diese Seite ist ein Platzhalter und noch kein gültiges Impressum. Bitte vor der
       Veröffentlichung gemeinsam mit der Schulleitung bzw. dem Schulträger ausfüllen.

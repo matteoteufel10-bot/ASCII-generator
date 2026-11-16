@@ -2,6 +2,8 @@
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import Basis from '../../layouts/Basis.astro';
+import BeitragsKarte from '../../components/BeitragsKarte.astro';
+import Icon from '../../components/Icon.astro';
 import { link, datumLesbar, datumIso } from '../../hilfen';
 
 export async function getStaticPaths() {
@@ -12,21 +14,47 @@ export async function getStaticPaths() {
 const { beitrag } = Astro.props;
 const { titel, datum, kategorie, kurztext, bild, bildBeschreibung } = beitrag.data;
 const { Content } = await render(beitrag);
+
+const weitere = (await getCollection('beitraege'))
+  .filter((anderer) => anderer.id !== beitrag.id)
+  .sort((a, b) => b.data.datum.valueOf() - a.data.datum.valueOf())
+  .slice(0, 2);
 ---
 <Basis titel={titel} beschreibung={kurztext} schmal>
-  <a class="zurueck" href={link('/')}>← Alle Beiträge</a>
-  <article>
-    <header class="beitrag-kopf">
+  <section slot="buehne" class:list={['buehne', 'buehne-seite', { 'buehne-ueberlappt': bild }]}>
+    <div class="breite schmal buehne-innen">
+      <a class="zurueck" href={link('/')}><Icon name="pfeil-links" groesse={18} /> Alle Beiträge</a>
       <div class="meta">
-        <span class:list={['marke-kategorie', { ankuendigung: kategorie === 'Ankündigung' }]}>{kategorie}</span>
+        <span class:list={['chip', { 'chip-akzent': kategorie === 'Ankündigung' }]}>{kategorie}</span>
         <time datetime={datumIso(datum)}>{datumLesbar(datum)}</time>
       </div>
-      <h1>{titel}</h1>
-      <p class="kurztext">{kurztext}</p>
-    </header>
-    {bild && <Image class="beitrag-bild" src={bild} alt={bildBeschreibung ?? ''} widths={[480, 960, 1400]} sizes="(min-width: 44rem) 42rem, 100vw" loading="eager" />}
+      <h1 id="beitragstitel">{titel}</h1>
+      <p class="vorspann">{kurztext}</p>
+    </div>
+  </section>
+
+  <article aria-labelledby="beitragstitel">
+    {bild && (
+      <Image
+        class="beitrag-bild"
+        src={bild}
+        alt={bildBeschreibung ?? ''}
+        widths={[480, 960, 1400]}
+        sizes="(min-width: 46rem) 44rem, 100vw"
+        loading="eager"
+      />
+    )}
     <div class="text">
       <Content />
     </div>
   </article>
+
+  {weitere.length > 0 && (
+    <section class="weitere" aria-labelledby="titel-weitere">
+      <h2 id="titel-weitere">Weitere Beiträge</h2>
+      <ul class="karten karten-zwei">
+        {weitere.map((anderer) => <BeitragsKarte beitrag={anderer} />)}
+      </ul>
+    </section>
+  )}
 </Basis>

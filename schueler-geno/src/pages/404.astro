@@ -1,11 +1,15 @@
 ---
 import Basis from '../layouts/Basis.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
+import Icon from '../components/Icon.astro';
 import { link } from '../hilfen';
 ---
 <Basis titel="Seite nicht gefunden" schmal>
-  <div class="text">
-    <h1>Seite nicht gefunden</h1>
-    <p>Diese Seite gibt es leider nicht (mehr). Vielleicht wurde der Beitrag umbenannt oder gelöscht.</p>
-    <p><a class="knopf" href={link('/')}>Zur Startseite</a></p>
-  </div>
+  <Seitenkopf
+    slot="buehne"
+    dachzeile="Fehler 404"
+    titel="Diese Seite gibt es nicht"
+    vorspann="Vielleicht wurde der Beitrag umbenannt oder gelöscht."
+  />
+  <p><a class="knopf" href={link('/')}><Icon name="pfeil-links" groesse={18} /> Zur Startseite</a></p>
 </Basis>

@@ -1,0 +1,18 @@
+---
+// Dunkler Kopfbereich mit Überschrift für die Unterseiten.
+interface Props {
+  dachzeile?: string;
+  titel: string;
+  vorspann?: string;
+  schmal?: boolean;
+}
+const { dachzeile, titel, vorspann, schmal = true } = Astro.props;
+---
+<section class="buehne buehne-seite">
+  <div class:list={['breite', 'buehne-innen', { schmal }]}>
+    {dachzeile && <p class="dachzeile">{dachzeile}</p>}
+    <h1>{titel}</h1>
+    {vorspann && <p class="vorspann">{vorspann}</p>}
+    <slot />
+  </div>
+</section>

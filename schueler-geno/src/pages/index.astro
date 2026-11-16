@@ -2,7 +2,10 @@
 import { getCollection } from 'astro:content';
 import Basis from '../layouts/Basis.astro';
 import BeitragsKarte from '../components/BeitragsKarte.astro';
+import Ankuendigung from '../components/Ankuendigung.astro';
+import Icon from '../components/Icon.astro';
 import { SEITE } from '../einstellungen';
+import { link } from '../hilfen';
 
 const alle = (await getCollection('beitraege')).sort(
   (a, b) => b.data.datum.valueOf() - a.data.datum.valueOf(),
@@ -11,39 +14,80 @@ const ankuendigungen = alle.filter((b) => b.data.kategorie === 'Ankündigung');
 const neuigkeiten = alle.filter((b) => b.data.kategorie === 'Neuigkeit');
 ---
 <Basis>
-  <h1>Aktuelles aus der {SEITE.name}</h1>
-  <p class="einleitung">
-    Hier erfahrt ihr, was in der Schülergenossenschaft am {SEITE.schule} gerade läuft und was als Nächstes ansteht.
-  </p>
+  <section slot="buehne" class="buehne buehne-start">
+    <div class="breite buehne-innen start-raster">
+      <div class="start-text">
+        <p class="dachzeile">Schülergenossenschaft am PHG Nürtingen</p>
+        <h1>Gemeinsam wirtschaften. <em>Gemeinsam entscheiden.</em></h1>
+        <p class="vorspann">
+          Die {SEITE.name} ist die Schülergenossenschaft am {SEITE.schule}. Hier erfahrt ihr, was
+          gerade läuft und was als Nächstes ansteht.
+        </p>
+        <div class="knopfreihe">
+          <a class="knopf knopf-akzent" href="#aktuelles">Aktuelles lesen <Icon name="pfeil-rechts" groesse={18} /></a>
+          <a class="knopf knopf-glas" href={link('/ueber-uns/#mitmachen')}>Mitmachen</a>
+        </div>
+      </div>
+      <ul class="werte">
+        <li>
+          <span class="symbol-kachel"><Icon name="stimme" /></span>
+          <span><strong>Ein Mitglied, eine Stimme</strong> Alle entscheiden gleichberechtigt mit.</span>
+        </li>
+        <li>
+          <span class="symbol-kachel"><Icon name="tasche" /></span>
+          <span><strong>Eigene Projekte</strong> Von der Idee bis zum Verkauf selbst gemacht.</span>
+        </li>
+        <li>
+          <span class="symbol-kachel"><Icon name="idee" /></span>
+          <span><strong>Echte Verantwortung</strong> Einkauf, Finanzen und Werbung selbst organisiert.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="filterleiste" id="aktuelles">
+    <h2>Aktuelles</h2>
+    {alle.length > 0 && (
+      <div class="filter" id="filter" role="group" aria-label="Beiträge nach Kategorie filtern" hidden>
+        <button type="button" data-filter="alle" aria-pressed="true">Alle <span class="anzahl">{alle.length}</span></button>
+        <button type="button" data-filter="Ankündigung" aria-pressed="false">Ankündigungen <span class="anzahl">{ankuendigungen.length}</span></button>
+        <button type="button" data-filter="Neuigkeit" aria-pressed="false">Neuigkeiten <span class="anzahl">{neuigkeiten.length}</span></button>
+      </div>
+    )}
+  </div>
+  <p class="nur-vorleser" id="filter-status" aria-live="polite"></p>
 
   {alle.length === 0 && <p class="leer">Noch keine Beiträge vorhanden. Schaut bald wieder vorbei!</p>}
 
-  {alle.length > 0 && (
-    <div class="filter" id="filter" role="group" aria-label="Beiträge nach Kategorie filtern" hidden>
-      <button type="button" data-filter="alle" aria-pressed="true">Alle</button>
-      <button type="button" data-filter="Ankündigung" aria-pressed="false">Ankündigungen</button>
-      <button type="button" data-filter="Neuigkeit" aria-pressed="false">Neuigkeiten</button>
+  <section class="abschnitt" data-abschnitt="Ankündigung" aria-labelledby="titel-ankuendigungen">
+    <h3 class="abschnitt-titel" id="titel-ankuendigungen"><Icon name="megafon" groesse={18} /> Ankündigungen</h3>
+    {ankuendigungen.length > 0 ? (
+      <ul class="ansagen">
+        {ankuendigungen.map((beitrag) => <Ankuendigung beitrag={beitrag} />)}
+      </ul>
+    ) : (
+      <p class="leer">Gerade gibt es keine Ankündigungen.</p>
+    )}
+  </section>
+
+  <section class="abschnitt" data-abschnitt="Neuigkeit" aria-labelledby="titel-neuigkeiten">
+    <h3 class="abschnitt-titel" id="titel-neuigkeiten"><Icon name="zeitung" groesse={18} /> Neuigkeiten</h3>
+    {neuigkeiten.length > 0 ? (
+      <ul class="karten">
+        {neuigkeiten.map((beitrag, nummer) => <BeitragsKarte beitrag={beitrag} gross={nummer === 0} ebene={4} />)}
+      </ul>
+    ) : (
+      <p class="leer">Noch keine Neuigkeiten vorhanden.</p>
+    )}
+  </section>
+
+  <section class="aufruf" aria-labelledby="titel-aufruf">
+    <div>
+      <h2 id="titel-aufruf">Lust, mitzumachen?</h2>
+      <p>Ob Verkauf, Finanzen oder Öffentlichkeitsarbeit: Bei uns findest du eine Aufgabe, die zu dir passt.</p>
     </div>
-  )}
-  <p class="nur-vorleser" id="filter-status" aria-live="polite"></p>
-
-  {ankuendigungen.length > 0 && (
-    <section class="abschnitt" data-abschnitt="Ankündigung" aria-labelledby="titel-ankuendigungen">
-      <h2 class="abschnitt-titel" id="titel-ankuendigungen">📌 Ankündigungen</h2>
-      <ul class="karten">
-        {ankuendigungen.map((beitrag) => <BeitragsKarte beitrag={beitrag} />)}
-      </ul>
-    </section>
-  )}
-
-  {neuigkeiten.length > 0 && (
-    <section class="abschnitt" data-abschnitt="Neuigkeit" aria-labelledby="titel-neuigkeiten">
-      <h2 class="abschnitt-titel" id="titel-neuigkeiten">Neuigkeiten</h2>
-      <ul class="karten">
-        {neuigkeiten.map((beitrag) => <BeitragsKarte beitrag={beitrag} />)}
-      </ul>
-    </section>
-  )}
+    <a class="knopf knopf-akzent" href={link('/ueber-uns/#mitmachen')}>So geht’s <Icon name="pfeil-rechts" groesse={18} /></a>
+  </section>
 </Basis>
 
 <script>

@@ -1,7 +1,11 @@
 ---
 // Auffälliger Warnhinweis für Seiten, die noch ausgefüllt werden müssen.
+import Icon from './Icon.astro';
 ---
 <div class="hinweis-platzhalter" role="note">
-  <strong>⚠ Noch auszufüllen</strong>
-  <p><slot /></p>
+  <span class="hinweis-symbol" aria-hidden="true"><Icon name="warnung" groesse={26} /></span>
+  <div>
+    <strong>Noch auszufüllen</strong>
+    <p><slot /></p>
+  </div>
 </div>

@@ -1,9 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Platzhalterbild">
-  <rect width="800" height="450" fill="#1b3a6b"/>
-  <circle cx="640" cy="110" r="150" fill="#27508f"/>
-  <circle cx="140" cy="400" r="190" fill="#14294d"/>
-  <rect x="300" y="170" width="200" height="130" rx="12" fill="#f2a900"/>
-  <rect x="325" y="200" width="150" height="14" rx="7" fill="#14294d"/>
-  <rect x="325" y="228" width="110" height="14" rx="7" fill="#14294d"/>
-  <rect x="325" y="256" width="130" height="14" rx="7" fill="#14294d"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-label="Platzhalterbild">
+  <defs>
+    <linearGradient id="h" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16316b"/>
+      <stop offset="1" stop-color="#091530"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffd466"/>
+      <stop offset="1" stop-color="#ffab00"/>
+    </linearGradient>
+    <radialGradient id="l" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#3f7bff" stop-opacity="0.75"/>
+      <stop offset="1" stop-color="#3f7bff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#h)"/>
+  <circle cx="1240" cy="220" r="560" fill="url(#l)"/>
+  <circle cx="180" cy="860" r="340" fill="#060e22" opacity="0.55"/>
+  <g fill="#ffffff">
+    <rect x="470" y="560" width="120" height="180" rx="26" opacity="0.14"/>
+    <rect x="620" y="480" width="120" height="260" rx="26" opacity="0.2"/>
+    <rect x="770" y="400" width="120" height="340" rx="26" opacity="0.28"/>
+    <rect x="920" y="310" width="120" height="430" rx="26" opacity="0.38"/>
+  </g>
+  <rect x="1070" y="210" width="120" height="530" rx="26" fill="url(#a)"/>
+  <circle cx="1130" cy="120" r="46" fill="url(#a)"/>
+  <rect x="410" y="770" width="840" height="10" rx="5" fill="#ffffff" opacity="0.25"/>
 </svg>

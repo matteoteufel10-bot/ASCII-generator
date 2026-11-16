@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Icon from '../components/Icon.astro';
 import { SEITE } from '../einstellungen';
 import { link } from '../hilfen';
 
@@ -25,7 +26,11 @@ const navigation = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{seitenTitel}</title>
     <meta name="description" content={beschreibung} />
-    <meta name="theme-color" content="#14294d" />
+    <meta property="og:title" content={titel ?? SEITE.name} />
+    <meta property="og:description" content={beschreibung} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta name="theme-color" content="#091530" />
     <link rel="icon" type="image/svg+xml" href={link('/favicon.svg')} />
   </head>
   <body>
@@ -33,7 +38,7 @@ const navigation = [
     <header class="kopf">
       <div class="breite kopf-innen">
         <a class="marke" href={start}>
-          <img src={link('/logo.svg')} alt="" width="40" height="40" />
+          <img src={link('/logo.svg')} alt="" width="36" height="36" />
           <span>
             <span class="marke-name">{SEITE.name}</span>
             <span class="marke-schule">{SEITE.schule}</span>
@@ -44,24 +49,49 @@ const navigation = [
             {navigation.map((punkt) => (
               <li><a href={punkt.ziel} aria-current={punkt.aktiv ? 'page' : undefined}>{punkt.text}</a></li>
             ))}
+            <li class="nav-knopf"><a href={link('/ueber-uns/#mitmachen')}>Mitmachen</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main id="inhalt" class:list={['breite', { schmal }]}>
-      <slot />
+    <main id="inhalt">
+      <slot name="buehne" />
+      <div class:list={['breite', 'inhalt', { schmal }]}>
+        <slot />
+      </div>
     </main>
 
     <footer class="fuss">
-      <div class="breite fuss-innen">
-        <p>{SEITE.name} am {SEITE.schule}</p>
-        <nav aria-label="Rechtliches">
-          <ul>
-            <li><a href={link('/impressum/')}>Impressum</a></li>
-            <li><a href={link('/datenschutz/')}>Datenschutz</a></li>
-          </ul>
-        </nav>
+      <div class="breite">
+        <div class="fuss-raster">
+          <div class="fuss-marke">
+            <a class="marke" href={start}>
+              <img src={link('/logo.svg')} alt="" width="36" height="36" loading="lazy" />
+              <span class="marke-name">{SEITE.name}</span>
+            </a>
+            <p>Die Schülergenossenschaft am {SEITE.schule}.</p>
+          </div>
+          <nav aria-label="Seiten">
+            <p class="fuss-titel">Seiten</p>
+            <ul>
+              <li><a href={start}>Aktuelles</a></li>
+              <li><a href={link('/ueber-uns/')}>Über uns</a></li>
+              <li><a href={link('/ueber-uns/#mitmachen')}>Mitmachen</a></li>
+            </ul>
+          </nav>
+          <nav aria-label="Rechtliches">
+            <p class="fuss-titel">Rechtliches</p>
+            <ul>
+              <li><a href={link('/impressum/')}>Impressum</a></li>
+              <li><a href={link('/datenschutz/')}>Datenschutz</a></li>
+            </ul>
+          </nav>
+        </div>
+        <p class="fuss-hinweis">
+          <Icon name="schild" groesse={18} />
+          <span>Diese Website kommt ohne Cookies, Tracking und externe Schriften aus.</span>
+        </p>
       </div>
     </footer>
   </body>

@@ -1,48 +1,106 @@
 ---
 import Basis from '../layouts/Basis.astro';
+import Seitenkopf from '../components/Seitenkopf.astro';
+import Icon from '../components/Icon.astro';
+import Offen from '../components/Offen.astro';
 import { SEITE } from '../einstellungen';
 ---
-<Basis titel="Über uns" beschreibung={`Was ist die ${SEITE.name}, wer macht mit und wie kann man mitmachen?`} schmal>
-  <div class="text">
-    <h1>Über uns</h1>
+<Basis titel="Über uns" beschreibung={`Was ist die ${SEITE.name}, wer macht mit und wie kann man mitmachen?`}>
+  <Seitenkopf
+    slot="buehne"
+    schmal={false}
+    dachzeile="Über uns"
+    titel="Eine Schülerfirma, die ihren Mitgliedern gehört"
+    vorspann={`Die ${SEITE.name} ist wie eine echte Genossenschaft aufgebaut: Wir planen, wirtschaften und entscheiden gemeinsam.`}
+  />
 
-    <h2>Was ist die Schülergenossenschaft?</h2>
-    <p>
-      Die {SEITE.name} ist eine Schülerfirma am {SEITE.schule}, die wie eine echte Genossenschaft
-      aufgebaut ist. Das heißt: Sie gehört ihren Mitgliedern, und alle wichtigen Entscheidungen
-      treffen wir gemeinsam. Dabei gilt das Prinzip „ein Mitglied, eine Stimme“, egal, wie viele
-      Anteile jemand hält.
-    </p>
-    <p>
-      Wir planen eigene Projekte, kümmern uns um Einkauf, Verkauf, Werbung und Finanzen und lernen
-      dabei ganz praktisch, wie ein Unternehmen funktioniert.
-    </p>
-    <p><mark class="offen">[Hier ergänzen: Was bietet die Schüler-Geno konkret an? Seit wann gibt es sie?]</mark></p>
-
-    <h2>Wer macht mit?</h2>
-    <p>Wie jede Genossenschaft haben wir feste Aufgabenbereiche:</p>
-    <ul>
-      <li><strong>Mitglieder:</strong> Sie tragen die Genossenschaft und stimmen in der Mitgliederversammlung ab.</li>
-      <li><strong>Vorstand:</strong> Er leitet das Tagesgeschäft und organisiert die Arbeit.</li>
-      <li><strong>Aufsichtsrat:</strong> Er schaut dem Vorstand über die Schulter und prüft, ob alles korrekt läuft.</li>
-      <li><strong>Teams:</strong> zum Beispiel für Verkauf, Finanzen und Öffentlichkeitsarbeit.</li>
-    </ul>
-    <p>Begleitet werden wir von Lehrkräften der Schule.</p>
-    <p><mark class="offen">[Hier ergänzen: Welche Klassenstufen machen mit? Gibt es eine Partnergenossenschaft? Bitte keine Namen von Schülern ohne Einwilligung.]</mark></p>
-
-    <h2>Wie kann ich mitmachen?</h2>
-    <ol>
-      <li><strong>Vorbeischauen:</strong> Komm einfach zu einem unserer Treffen und lern uns kennen.</li>
-      <li><strong>Mitglied werden:</strong> Mit einem Mitgliedsanteil gehörst du dazu und darfst mitbestimmen.</li>
-      <li><strong>Mitarbeiten:</strong> Such dir ein Team aus, das zu dir passt, oder bring eine eigene Idee mit.</li>
-    </ol>
-    <p><mark class="offen">[Hier ergänzen: Wann und wo sind die Treffen? Was kostet ein Anteil? Können auch Eltern und Lehrkräfte Mitglied werden?]</mark></p>
-
-    <div class="kasten">
-      <h2>Fragen?</h2>
-      <p>Schreib uns einfach eine E-Mail. Wir freuen uns über Ideen, Rückmeldungen und neue Gesichter.</p>
-      <p><a class="knopf" href={`mailto:${SEITE.kontaktEmail}`}>E-Mail schreiben</a></p>
-      <p><mark class="offen">[Platzhalter-Adresse: {SEITE.kontaktEmail}. Bitte in src/einstellungen.ts ändern.]</mark></p>
+  <section class="block" aria-labelledby="titel-was">
+    <div class="block-kopf">
+      <h2 id="titel-was">Was ist die Schülergenossenschaft?</h2>
+      <p>
+        Die {SEITE.name} ist eine Schülerfirma am {SEITE.schule}. Sie gehört ihren Mitgliedern, und
+        alle wichtigen Entscheidungen treffen wir gemeinsam. Dabei lernen wir ganz praktisch, wie
+        ein Unternehmen funktioniert.
+      </p>
     </div>
-  </div>
+    <ul class="kacheln kacheln-3">
+      <li class="kachel">
+        <span class="symbol-kachel"><Icon name="stimme" /></span>
+        <h3>Ein Mitglied, eine Stimme</h3>
+        <p>Jede Stimme zählt gleich viel, egal, wie viele Anteile jemand hält.</p>
+      </li>
+      <li class="kachel">
+        <span class="symbol-kachel"><Icon name="tasche" /></span>
+        <h3>Selbst wirtschaften</h3>
+        <p>Wir kümmern uns um Einkauf, Verkauf, Werbung und Finanzen.</p>
+      </li>
+      <li class="kachel">
+        <span class="symbol-kachel"><Icon name="idee" /></span>
+        <h3>Praktisch lernen</h3>
+        <p>Eigene Ideen umsetzen und dabei Verantwortung übernehmen.</p>
+      </li>
+    </ul>
+    <Offen>Was bietet die Schüler-Geno konkret an? Seit wann gibt es sie?</Offen>
+  </section>
+
+  <section class="block" aria-labelledby="titel-wer">
+    <div class="block-kopf">
+      <h2 id="titel-wer">Wer macht mit?</h2>
+      <p>Wie jede Genossenschaft haben wir feste Aufgabenbereiche. Begleitet werden wir von Lehrkräften der Schule.</p>
+    </div>
+    <ul class="kacheln kacheln-4">
+      <li class="kachel">
+        <span class="symbol-kachel symbol-kachel-ruhig"><Icon name="gruppe" /></span>
+        <h3>Mitglieder</h3>
+        <p>Sie tragen die Genossenschaft und stimmen in der Mitgliederversammlung ab.</p>
+      </li>
+      <li class="kachel">
+        <span class="symbol-kachel symbol-kachel-ruhig"><Icon name="flagge" /></span>
+        <h3>Vorstand</h3>
+        <p>Er leitet das Tagesgeschäft und organisiert die Arbeit.</p>
+      </li>
+      <li class="kachel">
+        <span class="symbol-kachel symbol-kachel-ruhig"><Icon name="auge" /></span>
+        <h3>Aufsichtsrat</h3>
+        <p>Er schaut dem Vorstand über die Schulter und prüft, ob alles korrekt läuft.</p>
+      </li>
+      <li class="kachel">
+        <span class="symbol-kachel symbol-kachel-ruhig"><Icon name="kacheln" /></span>
+        <h3>Teams</h3>
+        <p>Zum Beispiel für Verkauf, Finanzen und Öffentlichkeitsarbeit.</p>
+      </li>
+    </ul>
+    <Offen>Welche Klassenstufen machen mit? Gibt es eine Partnergenossenschaft? Bitte keine Namen von Schülern ohne Einwilligung.</Offen>
+  </section>
+
+  <section class="block" id="mitmachen" aria-labelledby="titel-mitmachen">
+    <div class="block-kopf">
+      <h2 id="titel-mitmachen">Wie kann ich mitmachen?</h2>
+      <p>In drei Schritten bist du dabei.</p>
+    </div>
+    <ol class="schritte">
+      <li class="kachel">
+        <h3>Vorbeischauen</h3>
+        <p>Komm einfach zu einem unserer Treffen und lern uns kennen.</p>
+      </li>
+      <li class="kachel">
+        <h3>Mitglied werden</h3>
+        <p>Mit einem Mitgliedsanteil gehörst du dazu und darfst mitbestimmen.</p>
+      </li>
+      <li class="kachel">
+        <h3>Mitarbeiten</h3>
+        <p>Such dir ein Team aus, das zu dir passt, oder bring eine eigene Idee mit.</p>
+      </li>
+    </ol>
+    <Offen>Wann und wo sind die Treffen? Was kostet ein Anteil? Können auch Eltern und Lehrkräfte Mitglied werden?</Offen>
+  </section>
+
+  <section class="aufruf" aria-labelledby="titel-fragen">
+    <div>
+      <h2 id="titel-fragen">Noch Fragen?</h2>
+      <p>Schreib uns einfach. Wir freuen uns über Ideen, Rückmeldungen und neue Gesichter.</p>
+    </div>
+    <a class="knopf knopf-akzent" href={`mailto:${SEITE.kontaktEmail}`}><Icon name="brief" groesse={18} /> E-Mail schreiben</a>
+  </section>
+  <Offen>Die Adresse {SEITE.kontaktEmail} ist ein Platzhalter. Bitte in src/einstellungen.ts ändern.</Offen>
 </Basis>

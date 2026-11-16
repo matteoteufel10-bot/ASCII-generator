@@ -177,8 +177,8 @@ veröffentlicht. Im Reiter **Actions** kannst du zuschauen:
 - [ ] **Impressum** und **Datenschutz** ausfüllen (`src/pages/impressum.astro`
       und `src/pages/datenschutz.astro`), am besten zusammen mit der
       Schulleitung. Beide Seiten sind bisher nur Platzhalter.
-- [ ] Gelb markierte Stellen auf der Seite **Über uns** ergänzen
-      (`src/pages/ueber-uns.astro`).
+- [ ] Gelbe Kästen „Noch ergänzen“ auf der Seite **Über uns** ausfüllen
+      und danach löschen (`src/pages/ueber-uns.astro`).
 - [ ] Kontakt-E-Mail eintragen (`src/einstellungen.ts`).
 - [ ] Logo austauschen (siehe nächster Abschnitt).
 
@@ -189,6 +189,7 @@ veröffentlicht. Im Reiter **Actions** kannst du zuschauen:
 | Was                          | Wo                                                                |
 | ---------------------------- | ----------------------------------------------------------------- |
 | Name, Schule, Kontakt-E-Mail | `src/einstellungen.ts`                                            |
+| Begrüßung auf der Startseite | `src/pages/index.astro`                                           |
 | Seite „Über uns“             | `src/pages/ueber-uns.astro`                                       |
 | Impressum                    | `src/pages/impressum.astro`                                       |
 | Datenschutz                  | `src/pages/datenschutz.astro`                                     |
@@ -202,7 +203,9 @@ Symbol im Browser-Tab).
 **Farben:** Jede Farbe ist ein Code wie `#1b3a6b`. Einen passenden Code
 findest du mit jedem „Farbwähler“ (Color Picker) im Internet. Achte darauf,
 dass Text und Hintergrund sich deutlich unterscheiden, damit alles gut
-lesbar bleibt. Der zweite Farbblock darunter gilt für den Dunkelmodus.
+lesbar bleibt. Der zweite Farbblock darunter gilt für den Dunkelmodus. Die
+Seite stellt sich automatisch auf hell oder dunkel ein, je nachdem, was am
+Gerät eingestellt ist.
 
 ---
 
@@ -252,7 +255,7 @@ schueler-geno/
 ├── src/
 │   ├── einstellungen.ts  ← Name, Schule, Kontakt
 │   ├── content.config.ts ← Regeln für die Angaben im Beitragskopf
-│   ├── components/       ← Bausteine (Beitragskarte, Platzhalter-Hinweis)
+│   ├── components/       ← Bausteine (Karten, Ankündigung, Symbole, Hinweise)
 │   ├── layouts/          ← Grundgerüst mit Kopf- und Fußzeile
 │   ├── pages/            ← die einzelnen Seiten
 │   └── styles/           ← Farben und Gestaltung

@@ -1,26 +1,49 @@
 ---
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
 import { link, datumLesbar, datumIso } from '../hilfen';
 
 interface Props {
   beitrag: CollectionEntry<'beitraege'>;
+  /** Große Darstellung für den neuesten Beitrag */
+  gross?: boolean;
+  /** Überschriften-Ebene (3 oder 4), passend zur Seite */
+  ebene?: 3 | 4;
 }
-const { beitrag } = Astro.props;
+const { beitrag, gross = false, ebene = 3 } = Astro.props;
 const { titel, datum, kategorie, kurztext, bild } = beitrag.data;
 const istAnkuendigung = kategorie === 'Ankündigung';
+const Titel = `h${ebene}`;
+
+// Beiträge ohne Bild bekommen eine von vier Farbflächen. Welche, hängt vom
+// Dateinamen ab, damit ein Beitrag immer gleich aussieht.
+const variante = ([...beitrag.id].reduce((summe, zeichen) => summe + zeichen.charCodeAt(0), 0) % 4) + 1;
 ---
-<li data-kategorie={kategorie}>
-  <article class:list={['karte', { 'ist-ankuendigung': istAnkuendigung }]}>
-    {bild && <Image class="karte-bild" src={bild} alt="" widths={[400, 800]} sizes="(min-width: 62rem) 22rem, (min-width: 40rem) 50vw, 100vw" />}
+<li class:list={{ 'karte-platz-gross': gross }} data-kategorie={kategorie}>
+  <article class:list={['karte', { 'karte-gross': gross }]}>
+    <div class="karte-medien">
+      {bild ? (
+        <Image
+          src={bild}
+          alt=""
+          widths={gross ? [480, 800, 1200] : [400, 800]}
+          sizes={gross ? '(min-width: 62rem) 32rem, 100vw' : '(min-width: 62rem) 22rem, (min-width: 40rem) 50vw, 100vw'}
+        />
+      ) : (
+        <div class:list={['ersatzbild', `ersatzbild-${variante}`]} aria-hidden="true">
+          <span><Icon name={istAnkuendigung ? 'megafon' : 'zeitung'} groesse={30} /></span>
+        </div>
+      )}
+    </div>
     <div class="karte-inhalt">
       <div class="meta">
-        <span class:list={['marke-kategorie', { ankuendigung: istAnkuendigung }]}>{kategorie}</span>
+        <span class:list={['chip', { 'chip-akzent': istAnkuendigung }]}>{kategorie}</span>
         <time datetime={datumIso(datum)}>{datumLesbar(datum)}</time>
       </div>
-      <h3><a href={link(`/beitraege/${beitrag.id}/`)}>{titel}</a></h3>
+      <Titel class="karte-titel"><a href={link(`/beitraege/${beitrag.id}/`)}>{titel}</a></Titel>
       <p>{kurztext}</p>
-      <span class="weiter" aria-hidden="true">Weiterlesen →</span>
+      <span class="weiter" aria-hidden="true">Weiterlesen <Icon name="pfeil-rechts" groesse={18} /></span>
     </div>
   </article>
 </li>

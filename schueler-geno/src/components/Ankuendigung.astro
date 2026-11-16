@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Icon from './Icon.astro';
+import { link, datumLesbar, datumIso } from '../hilfen';
+
+interface Props {
+  beitrag: CollectionEntry<'beitraege'>;
+}
+const { beitrag } = Astro.props;
+const { titel, datum, kategorie, kurztext } = beitrag.data;
+---
+<li data-kategorie={kategorie}>
+  <article class="ansage">
+    <span class="ansage-symbol" aria-hidden="true"><Icon name="megafon" groesse={24} /></span>
+    <div class="ansage-inhalt">
+      <div class="meta">
+        <span class="chip chip-akzent">{kategorie}</span>
+        <time datetime={datumIso(datum)}>{datumLesbar(datum)}</time>
+      </div>
+      <h4 class="ansage-titel"><a href={link(`/beitraege/${beitrag.id}/`)}>{titel}</a></h4>
+      <p>{kurztext}</p>
+    </div>
+    <span class="ansage-pfeil" aria-hidden="true"><Icon name="pfeil-rechts" groesse={20} /></span>
+  </article>
+</li>

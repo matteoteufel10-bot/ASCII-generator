@@ -1,0 +1,8 @@
+---
+// Markiert eine Stelle, an der noch eigene Angaben ergänzt werden müssen.
+import Icon from './Icon.astro';
+---
+<p class="notiz-offen">
+  <Icon name="stift" groesse={18} />
+  <span><strong>Noch ergänzen:</strong> <slot /></span>
+</p>
