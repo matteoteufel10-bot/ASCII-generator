@@ -1,0 +1,32 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import Basis from '../../layouts/Basis.astro';
+import { link, datumLesbar, datumIso } from '../../hilfen';
+
+export async function getStaticPaths() {
+  const beitraege = await getCollection('beitraege');
+  return beitraege.map((beitrag) => ({ params: { id: beitrag.id }, props: { beitrag } }));
+}
+
+const { beitrag } = Astro.props;
+const { titel, datum, kategorie, kurztext, bild, bildBeschreibung } = beitrag.data;
+const { Content } = await render(beitrag);
+---
+<Basis titel={titel} beschreibung={kurztext} schmal>
+  <a class="zurueck" href={link('/')}>← Alle Beiträge</a>
+  <article>
+    <header class="beitrag-kopf">
+      <div class="meta">
+        <span class:list={['marke-kategorie', { ankuendigung: kategorie === 'Ankündigung' }]}>{kategorie}</span>
+        <time datetime={datumIso(datum)}>{datumLesbar(datum)}</time>
+      </div>
+      <h1>{titel}</h1>
+      <p class="kurztext">{kurztext}</p>
+    </header>
+    {bild && <Image class="beitrag-bild" src={bild} alt={bildBeschreibung ?? ''} widths={[480, 960, 1400]} sizes="(min-width: 44rem) 42rem, 100vw" loading="eager" />}
+    <div class="text">
+      <Content />
+    </div>
+  </article>
+</Basis>

@@ -1,0 +1,26 @@
+---
+import { Image } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { link, datumLesbar, datumIso } from '../hilfen';
+
+interface Props {
+  beitrag: CollectionEntry<'beitraege'>;
+}
+const { beitrag } = Astro.props;
+const { titel, datum, kategorie, kurztext, bild } = beitrag.data;
+const istAnkuendigung = kategorie === 'Ankündigung';
+---
+<li data-kategorie={kategorie}>
+  <article class:list={['karte', { 'ist-ankuendigung': istAnkuendigung }]}>
+    {bild && <Image class="karte-bild" src={bild} alt="" widths={[400, 800]} sizes="(min-width: 62rem) 22rem, (min-width: 40rem) 50vw, 100vw" />}
+    <div class="karte-inhalt">
+      <div class="meta">
+        <span class:list={['marke-kategorie', { ankuendigung: istAnkuendigung }]}>{kategorie}</span>
+        <time datetime={datumIso(datum)}>{datumLesbar(datum)}</time>
+      </div>
+      <h3><a href={link(`/beitraege/${beitrag.id}/`)}>{titel}</a></h3>
+      <p>{kurztext}</p>
+      <span class="weiter" aria-hidden="true">Weiterlesen →</span>
+    </div>
+  </article>
+</li>

@@ -1,0 +1,48 @@
+---
+import Basis from '../layouts/Basis.astro';
+import { SEITE } from '../einstellungen';
+---
+<Basis titel="Über uns" beschreibung={`Was ist die ${SEITE.name}, wer macht mit und wie kann man mitmachen?`} schmal>
+  <div class="text">
+    <h1>Über uns</h1>
+
+    <h2>Was ist die Schülergenossenschaft?</h2>
+    <p>
+      Die {SEITE.name} ist eine Schülerfirma am {SEITE.schule}, die wie eine echte Genossenschaft
+      aufgebaut ist. Das heißt: Sie gehört ihren Mitgliedern, und alle wichtigen Entscheidungen
+      treffen wir gemeinsam. Dabei gilt das Prinzip „ein Mitglied, eine Stimme“, egal, wie viele
+      Anteile jemand hält.
+    </p>
+    <p>
+      Wir planen eigene Projekte, kümmern uns um Einkauf, Verkauf, Werbung und Finanzen und lernen
+      dabei ganz praktisch, wie ein Unternehmen funktioniert.
+    </p>
+    <p><mark class="offen">[Hier ergänzen: Was bietet die Schüler-Geno konkret an? Seit wann gibt es sie?]</mark></p>
+
+    <h2>Wer macht mit?</h2>
+    <p>Wie jede Genossenschaft haben wir feste Aufgabenbereiche:</p>
+    <ul>
+      <li><strong>Mitglieder:</strong> Sie tragen die Genossenschaft und stimmen in der Mitgliederversammlung ab.</li>
+      <li><strong>Vorstand:</strong> Er leitet das Tagesgeschäft und organisiert die Arbeit.</li>
+      <li><strong>Aufsichtsrat:</strong> Er schaut dem Vorstand über die Schulter und prüft, ob alles korrekt läuft.</li>
+      <li><strong>Teams:</strong> zum Beispiel für Verkauf, Finanzen und Öffentlichkeitsarbeit.</li>
+    </ul>
+    <p>Begleitet werden wir von Lehrkräften der Schule.</p>
+    <p><mark class="offen">[Hier ergänzen: Welche Klassenstufen machen mit? Gibt es eine Partnergenossenschaft? Bitte keine Namen von Schülern ohne Einwilligung.]</mark></p>
+
+    <h2>Wie kann ich mitmachen?</h2>
+    <ol>
+      <li><strong>Vorbeischauen:</strong> Komm einfach zu einem unserer Treffen und lern uns kennen.</li>
+      <li><strong>Mitglied werden:</strong> Mit einem Mitgliedsanteil gehörst du dazu und darfst mitbestimmen.</li>
+      <li><strong>Mitarbeiten:</strong> Such dir ein Team aus, das zu dir passt, oder bring eine eigene Idee mit.</li>
+    </ol>
+    <p><mark class="offen">[Hier ergänzen: Wann und wo sind die Treffen? Was kostet ein Anteil? Können auch Eltern und Lehrkräfte Mitglied werden?]</mark></p>
+
+    <div class="kasten">
+      <h2>Fragen?</h2>
+      <p>Schreib uns einfach eine E-Mail. Wir freuen uns über Ideen, Rückmeldungen und neue Gesichter.</p>
+      <p><a class="knopf" href={`mailto:${SEITE.kontaktEmail}`}>E-Mail schreiben</a></p>
+      <p><mark class="offen">[Platzhalter-Adresse: {SEITE.kontaktEmail}. Bitte in src/einstellungen.ts ändern.]</mark></p>
+    </div>
+  </div>
+</Basis>

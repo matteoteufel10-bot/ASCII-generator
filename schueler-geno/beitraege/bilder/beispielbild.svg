@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Platzhalterbild">
+  <rect width="800" height="450" fill="#1b3a6b"/>
+  <circle cx="640" cy="110" r="150" fill="#27508f"/>
+  <circle cx="140" cy="400" r="190" fill="#14294d"/>
+  <rect x="300" y="170" width="200" height="130" rx="12" fill="#f2a900"/>
+  <rect x="325" y="200" width="150" height="14" rx="7" fill="#14294d"/>
+  <rect x="325" y="228" width="110" height="14" rx="7" fill="#14294d"/>
+  <rect x="325" y="256" width="130" height="14" rx="7" fill="#14294d"/>
+</svg>
