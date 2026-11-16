@@ -1,0 +1,54 @@
+# Baut die Website der Schüler-Geno und veröffentlicht sie auf GitHub Pages.
+# Läuft automatisch, sobald im Ordner "schueler-geno" etwas geändert wird.
+name: Website veröffentlichen
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - 'schueler-geno/**'
+      - '.github/workflows/website-veroeffentlichen.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  bauen:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: schueler-geno
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: schueler-geno/package-lock.json
+      - id: pages
+        uses: actions/configure-pages@v5
+      - run: npm ci
+      - run: npm run build
+        env:
+          SITE_URL: ${{ steps.pages.outputs.origin }}
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: schueler-geno/dist
+
+  veroeffentlichen:
+    needs: bauen
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

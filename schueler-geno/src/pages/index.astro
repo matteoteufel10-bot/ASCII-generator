@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import Basis from '../layouts/Basis.astro';
+import BeitragsKarte from '../components/BeitragsKarte.astro';
+import { SEITE } from '../einstellungen';
+
+const alle = (await getCollection('beitraege')).sort(
+  (a, b) => b.data.datum.valueOf() - a.data.datum.valueOf(),
+);
+const ankuendigungen = alle.filter((b) => b.data.kategorie === 'Ankündigung');
+const neuigkeiten = alle.filter((b) => b.data.kategorie === 'Neuigkeit');
+---
+<Basis>
+  <h1>Aktuelles aus der {SEITE.name}</h1>
+  <p class="einleitung">
+    Hier erfahrt ihr, was in der Schülergenossenschaft am {SEITE.schule} gerade läuft und was als Nächstes ansteht.
+  </p>
+
+  {alle.length === 0 && <p class="leer">Noch keine Beiträge vorhanden. Schaut bald wieder vorbei!</p>}
+
+  {alle.length > 0 && (
+    <div class="filter" id="filter" role="group" aria-label="Beiträge nach Kategorie filtern" hidden>
+      <button type="button" data-filter="alle" aria-pressed="true">Alle</button>
+      <button type="button" data-filter="Ankündigung" aria-pressed="false">Ankündigungen</button>
+      <button type="button" data-filter="Neuigkeit" aria-pressed="false">Neuigkeiten</button>
+    </div>
+  )}
+  <p class="nur-vorleser" id="filter-status" aria-live="polite"></p>
+
+  {ankuendigungen.length > 0 && (
+    <section class="abschnitt" data-abschnitt="Ankündigung" aria-labelledby="titel-ankuendigungen">
+      <h2 class="abschnitt-titel" id="titel-ankuendigungen">📌 Ankündigungen</h2>
+      <ul class="karten">
+        {ankuendigungen.map((beitrag) => <BeitragsKarte beitrag={beitrag} />)}
+      </ul>
+    </section>
+  )}
+
+  {neuigkeiten.length > 0 && (
+    <section class="abschnitt" data-abschnitt="Neuigkeit" aria-labelledby="titel-neuigkeiten">
+      <h2 class="abschnitt-titel" id="titel-neuigkeiten">Neuigkeiten</h2>
+      <ul class="karten">
+        {neuigkeiten.map((beitrag) => <BeitragsKarte beitrag={beitrag} />)}
+      </ul>
+    </section>
+  )}
+</Basis>
+
+<script>
+  // Kategorie-Filter. Ohne JavaScript bleiben einfach alle Beiträge sichtbar.
+  const filter = document.getElementById('filter');
+  const status = document.getElementById('filter-status');
+  if (filter) {
+    filter.hidden = false;
+    const knoepfe = filter.querySelectorAll<HTMLButtonElement>('button');
+    const abschnitte = document.querySelectorAll<HTMLElement>('[data-abschnitt]');
+    filter.addEventListener('click', (ereignis) => {
+      const knopf = (ereignis.target as HTMLElement).closest('button');
+      if (!knopf) return;
+      const auswahl = knopf.dataset.filter;
+      knoepfe.forEach((k) => k.setAttribute('aria-pressed', String(k === knopf)));
+      let anzahl = 0;
+      abschnitte.forEach((abschnitt) => {
+        const sichtbar = auswahl === 'alle' || abschnitt.dataset.abschnitt === auswahl;
+        abschnitt.hidden = !sichtbar;
+        if (sichtbar) anzahl += abschnitt.querySelectorAll('li[data-kategorie]').length;
+      });
+      if (status) status.textContent = `${anzahl} ${anzahl === 1 ? 'Beitrag' : 'Beiträge'} angezeigt`;
+    });
+  }
+</script>

@@ -1,0 +1,68 @@
+---
+import '../styles/global.css';
+import { SEITE } from '../einstellungen';
+import { link } from '../hilfen';
+
+interface Props {
+  titel?: string;
+  beschreibung?: string;
+  schmal?: boolean;
+}
+const { titel, beschreibung = SEITE.beschreibung, schmal = false } = Astro.props;
+const seitenTitel = titel ? `${titel} | ${SEITE.name}` : `${SEITE.name} | ${SEITE.schule}`;
+
+const pfad = Astro.url.pathname;
+const start = link('/');
+const navigation = [
+  { text: 'Aktuelles', ziel: start, aktiv: pfad === start || pfad.startsWith(link('/beitraege/')) },
+  { text: 'Über uns', ziel: link('/ueber-uns/'), aktiv: pfad.startsWith(link('/ueber-uns/')) },
+];
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seitenTitel}</title>
+    <meta name="description" content={beschreibung} />
+    <meta name="theme-color" content="#14294d" />
+    <link rel="icon" type="image/svg+xml" href={link('/favicon.svg')} />
+  </head>
+  <body>
+    <a class="sprunglink" href="#inhalt">Zum Inhalt springen</a>
+    <header class="kopf">
+      <div class="breite kopf-innen">
+        <a class="marke" href={start}>
+          <img src={link('/logo.svg')} alt="" width="40" height="40" />
+          <span>
+            <span class="marke-name">{SEITE.name}</span>
+            <span class="marke-schule">{SEITE.schule}</span>
+          </span>
+        </a>
+        <nav class="navigation" aria-label="Hauptnavigation">
+          <ul>
+            {navigation.map((punkt) => (
+              <li><a href={punkt.ziel} aria-current={punkt.aktiv ? 'page' : undefined}>{punkt.text}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inhalt" class:list={['breite', { schmal }]}>
+      <slot />
+    </main>
+
+    <footer class="fuss">
+      <div class="breite fuss-innen">
+        <p>{SEITE.name} am {SEITE.schule}</p>
+        <nav aria-label="Rechtliches">
+          <ul>
+            <li><a href={link('/impressum/')}>Impressum</a></li>
+            <li><a href={link('/datenschutz/')}>Datenschutz</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
