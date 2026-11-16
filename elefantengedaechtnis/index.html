@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elefantengedächtnis · Ankündigungen und Aktionen am haertling</title>
+<meta name="description" content="Zettel gehen verloren. Der Elefant vergisst nichts. Alle Ankündigungen und Aktionen am Peter-Härtling-Gymnasium Nürtingen an einem Ort, mit Datum.">
+<meta name="theme-color" content="#182b3c">
+<!-- ENTWURF: Solange die Schulleitung die Seite nicht freigegeben hat, sollen Suchmaschinen sie nicht aufnehmen.
+     Nach der Freigabe diese Zeile löschen. -->
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'%3E%3Crect width='240' height='240' rx='44' fill='%23182b3c'/%3E%3Cg transform='translate(0 46)' stroke='%230e1a26' stroke-width='4' stroke-linejoin='round'%3E%3Cpolygon points='16,72 56,30 46,58' fill='%2391a6bd'/%3E%3Cpolygon points='56,30 142,22 156,66 108,90 46,58' fill='%23c3d0de'/%3E%3Cpolygon points='46,58 82,77 50,136 26,136' fill='%238299b4'/%3E%3Cpolygon points='108,90 156,66 168,136 142,136' fill='%2391a6bd'/%3E%3Cpolygon points='142,22 150,10 214,26 226,54 192,78 168,82 156,66' fill='%23a9bacd'/%3E%3Cpolygon points='226,54 202,122 178,122 176,112 192,108 192,78' fill='%238299b4'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/seite.css">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Elefantengedächtnis">
+<meta property="og:description" content="Zettel gehen verloren. Der Elefant vergisst nichts. Alle Ankündigungen und Aktionen am haertling an einem Ort.">
+<!-- DEPLOY STEP: Diese beiden Angaben brauchen die echte Adresse der Seite, sobald sie online ist.
+     Beispiel: https://meine-adresse.de/assets/hero-ending.jpg und https://meine-adresse.de/ -->
+<meta property="og:image" content="assets/hero-ending.jpg">
+<meta property="og:url" content="">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+
+<!-- Eine feste Ebene hinter allem: Licht, Papierstaub, treibende Blätter -->
+<div class="env" aria-hidden="true">
+  <div class="env-light"></div>
+  <div class="env-dust"></div>
+  <i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i>
+</div>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="Elefantengedächtnis, nach oben">
+    <svg class="mark" viewBox="0 0 240 150" aria-hidden="true">
+      <g stroke-linejoin="round">
+        <polygon class="f3" points="16,72 56,30 46,58"/>
+        <polygon class="f1" points="56,30 142,22 156,66 108,90 46,58"/>
+        <polygon class="f4" points="46,58 82,77 50,136 26,136"/>
+        <polygon class="f3" points="108,90 156,66 168,136 142,136"/>
+        <polygon class="f2" points="142,22 150,10 214,26 226,54 192,78 168,82 156,66"/>
+        <polygon class="f4" points="226,54 202,122 178,122 176,112 192,108 192,78"/>
+      </g>
+    </svg>
+    <span class="brand-name">Elefantengedächtnis</span>
+    <span class="draft">Entwurf</span>
+  </a>
+  <nav class="links" aria-label="Bereiche der Seite">
+    <a href="#ankuendigungen">Ankündigungen</a>
+    <a href="#aktionen">Aktionen</a>
+    <a href="#eltern">Für Eltern</a>
+    <a href="#fragen">Fragen</a>
+  </nav>
+  <a class="btn btn-accent nav-cta" href="#mitmachen">Mitmachen</a>
+</header>
+
+<main id="main" tabindex="-1">
+
+<!-- ======================================================================
+     HERO: das Scroll-Video
+     ====================================================================== -->
+<section class="hero" id="top" aria-label="Einstieg">
+
+  <!-- Scroll-Bühne (Laptops und PCs) -->
+  <div class="stage" id="stage">
+    <div class="stage-media" aria-hidden="true">
+      <div class="poster" id="poster"></div>
+      <div class="poster-end" id="poster-end"></div>
+      <video id="hero" preload="none" muted playsinline disablepictureinpicture aria-hidden="true" tabindex="-1"></video>
+      <div class="scrim"></div>
+    </div>
+
+    <div class="band" data-a="0" data-b="0.21" data-fx="scatter" data-spread="0.5" style="--sa:.86">
+      <p class="line" data-split>Zettel gehen verloren.</p>
+    </div>
+
+    <div class="band" data-a="0.25" data-b="0.47" data-fx="drift" style="--sa:.88">
+      <p class="line"><span class="hl" data-split data-off="0">Im Ranzen.</span> <span class="hl" data-split data-off="0.2">Im Chat.</span> <span class="hl" data-split data-off="0.4">Im Kopf.</span></p>
+    </div>
+
+    <div class="band" data-a="0.51" data-b="0.73" data-fx="depth">
+      <p class="line" data-split>Einer vergisst nichts.</p>
+    </div>
+
+    <div class="band band-settle" data-a="0.78" data-b="1" data-fx="rise" data-ramp="0.07">
+      <h1 class="line line-h1" data-split>Elefantengedächtnis.</h1>
+      <p class="settle-sub">Alle Ankündigungen und Aktionen am haertling. An einem Ort. Mit Datum.</p>
+      <div class="settle-cta">
+        <a class="btn btn-accent btn-big" href="#mitmachen">Mitmachen</a>
+        <a class="textlink" href="#ankuendigungen">Was steht an?</a>
+      </div>
+    </div>
+
+    <div class="cue" id="cue" aria-hidden="true">
+      <svg class="ring" id="ring" viewBox="0 0 48 48">
+        <circle class="ring-track" cx="24" cy="24" r="20"/>
+        <circle class="ring-fill" cx="24" cy="24" r="20"/>
+        <path class="ring-arrow" d="M17 21l7 7 7-7"/>
+      </svg>
+      <span class="cue-label">Scrollen</span>
+    </div>
+  </div>
+
+  <!-- Standbild-Hero (Handys, Hochformat, weniger Bewegung) -->
+  <div class="still" id="still">
+    <div class="still-img" aria-hidden="true"></div>
+    <div class="still-copy">
+      <p class="kicker">haertling, Nürtingen</p>
+      <h1 class="still-h1">Elefanten&shy;gedächtnis.</h1>
+      <p class="still-sub">Zettel gehen verloren. Der Elefant vergisst nichts. Alle Ankündigungen und Aktionen am haertling, an einem Ort.</p>
+      <div class="still-cta">
+        <a class="btn btn-accent btn-big" href="#mitmachen">Mitmachen</a>
+        <a class="textlink" href="#ankuendigungen">Was steht an?</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     6.1 ALS NÄCHSTES
+     ====================================================================== -->
+<section class="sec sec-jetzt" id="jetzt" data-in aria-labelledby="jetzt-titel">
+  <div class="wrap">
+    <div class="part" style="--i:0">
+      <article class="next on-paper" id="next">
+        <div class="next-date" aria-hidden="true">
+          <span class="next-day" id="next-day">00</span>
+          <span class="next-month" id="next-month">Monat</span>
+          <span class="next-weekday" id="next-weekday">Wochentag</span>
+        </div>
+        <div class="next-body">
+          <p class="kicker kicker-ink">Als Nächstes <span class="chip chip-when" id="next-when"></span></p>
+          <h2 class="next-title" id="jetzt-titel">Gerade steht nichts an. Der Elefant meldet sich.</h2>
+          <p class="next-text" id="next-text"></p>
+          <p class="next-meta" id="next-meta"></p>
+          <div class="next-actions" id="next-actions">
+            <a class="btn btn-ink" id="next-join" href="#mitmachen">Mitmachen</a>
+            <button class="hold hold-big" id="next-hold" type="button" aria-pressed="false">
+              <span class="hold-fill" aria-hidden="true"></span>
+              <span class="hold-label">Halten zum Merken</span>
+            </button>
+          </div>
+          <p class="next-done" id="next-done" aria-live="polite">
+            <span class="nd nd1">Der Elefant hat es sich gemerkt.</span>
+            <a class="nd nd2 textlink textlink-ink" id="next-ics" href="#">In meinen Kalender</a>
+          </p>
+        </div>
+
+        <!-- Der eine Mitmach-Moment: Der Zettel faltet sich zum Elefanten -->
+        <div class="fold" id="fold" aria-hidden="true">
+          <div class="fold-sheet"></div>
+          <div class="facet fa1"></div>
+          <div class="facet fa2"></div>
+          <div class="facet fa3"></div>
+          <div class="facet fa4"></div>
+          <div class="facet fa5"></div>
+          <div class="facet fa6"></div>
+          <svg class="fold-lines" viewBox="0 0 240 150">
+            <path pathLength="100" d="M16 72L56 30L142 22L150 10L214 26L226 54L202 122L178 122L176 112L192 108L192 78L168 82L156 66L168 136L142 136L108 90L82 77L50 136L26 136L46 58Z"/>
+            <path pathLength="100" d="M56 30L46 58L108 90L156 66L142 22M192 78L226 54M46 58L82 77"/>
+          </svg>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="foldline" data-in aria-hidden="true"><span></span></div>
+
+<!-- ======================================================================
+     6.2 ANKÜNDIGUNGEN
+     ====================================================================== -->
+<section class="sec sec-board" id="ankuendigungen" data-in aria-labelledby="board-titel">
+  <div class="wrap">
+    <div class="board-head">
+      <div class="board-intro">
+        <p class="kicker part" style="--i:0">Das Gedächtnis</p>
+        <h2 class="h2 part" style="--i:1" id="board-titel">Was <span class="mark-word">ansteht.</span></h2>
+        <p class="lede part" style="--i:2">Alles, was am haertling angekündigt ist. Das Nächste steht oben, Vergangenes wandert von selbst nach unten.</p>
+      </div>
+      <dl class="counts part" style="--i:3" id="counts">
+        <div class="count"><dt>Einträge im Gedächtnis</dt><dd data-count="all">0</dd></div>
+        <div class="count"><dt>stehen an</dt><dd data-count="open">0</dd></div>
+        <div class="count count-zero"><dt>vergessen</dt><dd>0</dd></div>
+      </dl>
+    </div>
+
+    <div class="filters part" style="--i:4" role="group" aria-label="Einträge filtern">
+      <button class="filter" type="button" data-filter="alle" aria-pressed="true">Alles</button>
+      <button class="filter" type="button" data-filter="Ankündigung" aria-pressed="false">Ankündigungen</button>
+      <button class="filter" type="button" data-filter="Aktion" aria-pressed="false">Aktionen</button>
+      <button class="filter" type="button" data-filter="Termin" aria-pressed="false">Termine</button>
+    </div>
+
+    <div class="sheets" id="sheets" aria-live="polite"></div>
+    <p class="empty" id="sheets-empty" hidden>Dazu steht gerade nichts an.</p>
+
+    <div class="archive" id="archive" hidden>
+      <button class="archive-toggle" id="archive-toggle" type="button" aria-expanded="false" aria-controls="archive-panel">
+        <span class="plus" aria-hidden="true"></span>
+        <span>Schon gewesen</span>
+        <span class="archive-n" id="archive-n"></span>
+      </button>
+      <div class="fold-panel" id="archive-panel">
+        <div class="fold-inner">
+          <ul class="archive-list" id="archive-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <noscript><p class="empty">Die Einträge brauchen JavaScript. Bitte schalte es in deinem Browser ein.</p></noscript>
+  </div>
+</section>
+
+<!-- ======================================================================
+     6.3 AKTIONEN
+     ====================================================================== -->
+<section class="sec sec-herd" id="aktionen" data-in aria-labelledby="herd-titel">
+  <div class="herd-stage">
+    <div class="herd-mask"><img class="herd-img" src="assets/bild-herde.jpg" width="1920" height="1086" alt="Sieben gefaltete Papier-Elefanten, große und kleine, laufen gemeinsam in einer Reihe." loading="lazy" decoding="async"></div>
+    <div class="herd-copy wrap">
+      <p class="kicker part" style="--i:0">Aktionen</p>
+      <h2 class="h2 h2-xl part" style="--i:1" id="herd-titel">Keiner läuft <span class="mark-word">allein.</span></h2>
+      <p class="lede part" style="--i:2">Aktionen leben von Leuten, die kommen. Such dir eine aus und sei dabei.</p>
+    </div>
+  </div>
+  <div class="wrap">
+    <ol class="rows" id="rows"></ol>
+    <p class="empty" id="rows-empty" hidden>Die nächste Aktion ist schon in Arbeit.</p>
+  </div>
+</section>
+
+<!-- ======================================================================
+     6.4 SO GEHT'S
+     ====================================================================== -->
+<section class="sec sec-steps" id="so-gehts" data-in aria-labelledby="steps-titel">
+  <div class="wrap">
+    <div class="steps-head">
+      <p class="kicker part" style="--i:0">So geht's</p>
+      <h2 class="h2 part" style="--i:1" id="steps-titel">Dreimal falten. Fertig.</h2>
+    </div>
+    <div class="steps">
+      <svg class="steps-thread" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M0 20 C 180 2, 320 38, 500 20 S 820 2, 1000 20"/>
+      </svg>
+      <ol class="steps-list">
+        <li class="step part" style="--i:2">
+          <svg class="diagram" viewBox="0 0 160 120" aria-hidden="true">
+            <polygon class="d-paper" points="34,18 126,18 126,102 34,102"/>
+            <path class="d-fold" d="M34 102L126 18"/>
+            <path class="d-arrow" d="M58 44c10-14 28-18 44-8M102 36l-9-1M102 36l-1 9"/>
+          </svg>
+          <p class="step-n">1</p>
+          <h3 class="step-title">Aussuchen</h3>
+          <p class="step-text">Such dir eine Aktion aus, die dich reizt.</p>
+        </li>
+        <li class="step part" style="--i:3">
+          <svg class="diagram" viewBox="0 0 160 120" aria-hidden="true">
+            <polygon class="d-paper d-back" points="34,102 126,18 126,102"/>
+            <polygon class="d-paper" points="34,102 126,18 92,60 70,96"/>
+            <path class="d-fold" d="M70 96L126 18"/>
+            <path class="d-arrow" d="M52 60c4-16 18-26 34-26M86 34l-8 4M86 34l-3-8"/>
+          </svg>
+          <p class="step-n">2</p>
+          <h3 class="step-title">Eintragen</h3>
+          <p class="step-text">Vorname und Klasse reichen.</p>
+        </li>
+        <li class="step part" style="--i:4">
+          <svg class="diagram" viewBox="0 0 240 150" aria-hidden="true">
+            <g class="d-ele" stroke-linejoin="round">
+              <polygon class="f3" points="16,72 56,30 46,58"/>
+              <polygon class="f1" points="56,30 142,22 156,66 108,90 46,58"/>
+              <polygon class="f4" points="46,58 82,77 50,136 26,136"/>
+              <polygon class="f3" points="108,90 156,66 168,136 142,136"/>
+              <polygon class="f2" points="142,22 150,10 214,26 226,54 192,78 168,82 156,66"/>
+              <polygon class="f4" points="226,54 202,122 178,122 176,112 192,108 192,78"/>
+            </g>
+          </svg>
+          <p class="step-n">3</p>
+          <h3 class="step-title">Kommen</h3>
+          <p class="step-text">Sei zur Uhrzeit am Treffpunkt. Den Rest machen wir zusammen.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     6.5 FÜR ELTERN
+     ====================================================================== -->
+<section class="sec sec-parents" id="eltern" data-in aria-labelledby="parents-titel">
+  <div class="wrap parents">
+    <figure class="parents-fig part" style="--i:0">
+      <img src="assets/bild-eltern.jpg" width="1400" height="1045" alt="Ein großer gefalteter Papier-Elefant steht schützend über einem kleinen." loading="lazy" decoding="async">
+    </figure>
+    <div class="parents-copy">
+      <p class="kicker part" style="--i:1">Für Eltern</p>
+      <h2 class="h2 part" style="--i:2" id="parents-titel">Sie müssen nicht mehr im <span class="mark-word">Ranzen</span> suchen.</h2>
+      <p class="lede part" style="--i:3">Elternbrief, Zettel, Klassenchat. Irgendwo stand es. Hier steht es sicher: alle Termine und Aktionen der Schule an einem Ort, sortiert nach Datum.</p>
+      <ul class="without part" style="--i:4">
+        <li>Ohne App.</li>
+        <li>Ohne Anmeldung.</li>
+        <li>Ohne Cookies.</li>
+      </ul>
+      <p class="part" style="--i:5"><a class="textlink" href="#ankuendigungen">Zu den Terminen</a></p>
+    </div>
+  </div>
+</section>
+
+<div class="foldline" data-in aria-hidden="true"><span></span></div>
+
+<!-- ======================================================================
+     6.6 FRAGEN
+     ====================================================================== -->
+<section class="sec sec-faq" id="fragen" data-in aria-labelledby="faq-titel">
+  <div class="wrap wrap-narrow">
+    <p class="kicker part" style="--i:0">Fragen</p>
+    <h2 class="h2 part" style="--i:1" id="faq-titel">Kurz gefragt.</h2>
+
+    <div class="faq part" style="--i:2">
+      <div class="qa">
+        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a1" id="q1"><span>Ist das die offizielle Seite der Schule?</span><span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="fold-panel" id="a1" role="region" aria-labelledby="q1"><div class="fold-inner"><p>Nein. Die offizielle Seite ist <a href="https://phg-nuertingen.de/" rel="noopener">phg-nuertingen.de</a>. Das Elefantengedächtnis ist ein Projekt der Schüler-Geno. Es sammelt Ankündigungen und Aktionen an einem Ort.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a2" id="q2"><span>Wer trägt die Einträge ein?</span><span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="fold-panel" id="a2" role="region" aria-labelledby="q2"><div class="fold-inner"><p>Die Schüler-Geno. Jeder Eintrag bekommt ein Datum, damit du siehst, wie frisch er ist.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a3" id="q3"><span>Wie kommt meine Aktion auf die Seite?</span><span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="fold-panel" id="a3" role="region" aria-labelledby="q3"><div class="fold-inner"><p>Schreib uns über das Formular unten. Sag kurz, was du vorhast, wann und wo.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a4" id="q4"><span>Was passiert mit alten Einträgen?</span><span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="fold-panel" id="a4" role="region" aria-labelledby="q4"><div class="fold-inner"><p>Sie wandern von selbst nach unten zu „Schon gewesen“. Gelöscht wird nichts. Elefanten vergessen nicht.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a5" id="q5"><span>Brauche ich eine App oder ein Konto?</span><span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="fold-panel" id="a5" role="region" aria-labelledby="q5"><div class="fold-inner"><p>Nein. Die Seite läuft im Browser, ohne Anmeldung, ohne Cookies, ohne Tracking.</p></div></div>
+      </div>
+      <div class="qa">
+        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a6" id="q6"><span>Was macht der Knopf „Merken“?</span><span class="plus" aria-hidden="true"></span></button></h3>
+        <div class="fold-panel" id="a6" role="region" aria-labelledby="q6"><div class="fold-inner"><p>Halte ihn kurz gedrückt. Danach kannst du den Termin in deinen Kalender laden. Gemerkt wird nur auf deinem Gerät.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     6.7 MITMACHEN
+     ====================================================================== -->
+<section class="sec sec-join" id="mitmachen" data-in aria-labelledby="join-titel">
+  <img class="join-img" src="assets/bild-blatt.jpg" width="1920" height="1086" alt="" loading="lazy" decoding="async">
+  <div class="wrap join">
+    <div class="join-copy">
+      <p class="kicker part" style="--i:0">Mitmachen</p>
+      <h2 class="h2 h2-xl part" style="--i:1" id="join-titel">Trag dich <span class="mark-word">ein.</span></h2>
+      <p class="lede part" style="--i:2">Sag uns, bei welcher Aktion du dabei bist. Wir melden uns bei dir.</p>
+    </div>
+
+    <div class="part" style="--i:3">
+      <form class="form on-paper" id="form" novalidate>
+        <div class="form-fields" id="form-fields">
+          <div class="field">
+            <label for="f-name">Vorname</label>
+            <input id="f-name" name="vorname" type="text" autocomplete="given-name" placeholder="Mia" required aria-describedby="f-name-err">
+            <p class="err" id="f-name-err" hidden>Bitte trag deinen Vornamen ein.</p>
+          </div>
+          <div class="field">
+            <label for="f-klasse">Klasse <span class="opt">wenn du magst</span></label>
+            <input id="f-klasse" name="klasse" type="text" placeholder="8b" autocomplete="off">
+          </div>
+          <div class="field field-wide">
+            <label for="f-aktion">Aktion</label>
+            <select id="f-aktion" name="aktion"></select>
+          </div>
+          <div class="field field-wide">
+            <label for="f-text">Nachricht <span class="opt">wenn du magst</span></label>
+            <textarea id="f-text" name="nachricht" rows="3" placeholder="Ich kann beim Aufbau helfen."></textarea>
+          </div>
+          <div class="form-foot field-wide">
+            <button class="btn btn-accent btn-big" type="submit">Ich bin dabei</button>
+            <p class="form-note">Das Formular öffnet dein E-Mail-Programm. Erst wenn du dort auf Senden drückst, kommt deine Nachricht bei der Schüler-Geno an. Auf dieser Seite wird nichts gespeichert.</p>
+          </div>
+        </div>
+        <div class="form-ok" id="form-ok" tabindex="-1" hidden>
+          <p class="ok-title">Fast geschafft.</p>
+          <p>Dein E-Mail-Programm hat sich geöffnet. Drück dort auf Senden, dann bist du dabei.</p>
+        </div>
+        <p class="form-warn" id="form-warn" hidden>Vorschau: Die Adresse der Schüler-Geno ist noch nicht eingetragen. Es wird nichts verschickt.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================================================================
+     6.8 FUSSZEILE
+     ====================================================================== -->
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <svg class="mark mark-big" viewBox="0 0 240 150" aria-hidden="true">
+        <g stroke-linejoin="round">
+          <polygon class="f3" points="16,72 56,30 46,58"/>
+          <polygon class="f1" points="56,30 142,22 156,66 108,90 46,58"/>
+          <polygon class="f4" points="46,58 82,77 50,136 26,136"/>
+          <polygon class="f3" points="108,90 156,66 168,136 142,136"/>
+          <polygon class="f2" points="142,22 150,10 214,26 226,54 192,78 168,82 156,66"/>
+          <polygon class="f4" points="226,54 202,122 178,122 176,112 192,108 192,78"/>
+        </g>
+      </svg>
+      <p class="foot-name">Elefantengedächtnis</p>
+      <p>Ein Projekt der Schüler-Geno am Peter-Härtling-Gymnasium Nürtingen.</p>
+      <p class="foot-draft">Entwurf. Noch nicht von der Schulleitung freigegeben.</p>
+    </div>
+    <div class="foot-info">
+      <p>Die offizielle Seite der Schule: <a href="https://phg-nuertingen.de/" rel="noopener">phg-nuertingen.de</a></p>
+      <p>Bilder und Video dieser Seite sind mit KI erzeugt.</p>
+      <p>Keine Cookies. Kein Tracking. Die Schriften liegen auf dieser Seite.</p>
+    </div>
+    <nav class="foot-links" aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="#top">Nach oben</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/inhalte.js"></script>
+<script src="assets/seite.js"></script>
+</body>
+</html>

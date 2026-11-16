@@ -1,0 +1,17 @@
+Schriften auf dieser Seite und ihre Lizenzen
+
+Bricolage Grotesque
+  Copyright 2022 The Bricolage Grotesque Project Authors (https://github.com/ateliertriay/bricolage)
+  SIL Open Font License, Version 1.1
+
+IBM Plex Sans
+  Copyright 2019 IBM Corp.
+  SIL Open Font License, Version 1.1
+
+Special Elite
+  Copyright Astigmatic (Brian J. Bonislawsky)
+  Apache License, Version 2.0
+
+Lizenztexte:
+  https://openfontlicense.org
+  https://www.apache.org/licenses/LICENSE-2.0
