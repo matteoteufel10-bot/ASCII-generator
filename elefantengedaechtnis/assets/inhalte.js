@@ -6,7 +6,7 @@
    - Auf dem claude.ai-Link: in der Redaktion (dieselbe Adresse mit #redaktion).
      Dort brauchst du diese Datei nicht.
    - Auf einer eigenen Adresse (zum Beispiel GitHub Pages): hier in dieser Datei.
-     Die Redaktion kann dir diese Datei auch fertig erzeugen, unten auf ihrer Seite.
+     Die Redaktion erzeugt dir diese Datei auch fertig, im Reiter "Datei für GitHub".
 
    NEUER EINTRAG
    1. Kopiere einen Block von { bis }, (mit dem Komma am Ende).
@@ -122,3 +122,10 @@ window.INHALTE = [
    PLATZHALTER: Beide Angaben fehlen noch. */
 window.FORMULAR_ZIEL = "";
 window.KONTAKT_EMAIL = "kontakt@example.org";
+
+/* TEXTE, ANSICHT, FORMULAR, FRAGEN UND FARBE
+   Leer heißt: Die Seite zeigt alles so, wie es gebaut wurde.
+   Diesen Teil musst du nicht von Hand schreiben. Stell in der Redaktion unter
+   "Texte", "Ansicht", "Formular", "Fragen" und "Bilder und Farbe" alles ein,
+   dann kopiere unter "Datei für GitHub" die ganze Datei hierher. */
+window.SEITE = {};
