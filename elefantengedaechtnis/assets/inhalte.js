@@ -2,7 +2,11 @@
    ELEFANTENGEDÄCHTNIS: ALLE ANKÜNDIGUNGEN, AKTIONEN UND TERMINE
    ==========================================================================
 
-   Das ist die einzige Datei, die du für neue Einträge anfassen musst.
+   WO DU EINTRÄGE BEARBEITEST
+   - Auf dem claude.ai-Link: in der Redaktion (dieselbe Adresse mit #redaktion).
+     Dort brauchst du diese Datei nicht.
+   - Auf einer eigenen Adresse (zum Beispiel GitHub Pages): hier in dieser Datei.
+     Die Redaktion kann dir diese Datei auch fertig erzeugen, unten auf ihrer Seite.
 
    NEUER EINTRAG
    1. Kopiere einen Block von { bis }, (mit dem Komma am Ende).
@@ -12,7 +16,7 @@
 
    DIE ANGABEN
    art     Genau eines von: "Aktion", "Ankündigung", "Termin"
-           Nur bei "Aktion" erscheint der Knopf "Mitmachen".
+           Nur bei "Aktion" erscheint der Knopf "Mithelfen".
    titel   Die Überschrift. Kurz halten.
    datum   Immer Jahr-Monat-Tag, zum Beispiel "2026-12-04"
    von     Beginn als "15:00". Weglassen, wenn es den ganzen Tag gilt.
@@ -102,11 +106,19 @@ window.INHALTE = [
     art: "Ankündigung",
     titel: "Das Elefantengedächtnis startet",
     datum: "2026-11-02",
-    text: "Ab jetzt stehen alle Ankündigungen und Aktionen hier. Mit Datum, an einem Ort.",
+    text: "Ab jetzt stehen alle Ankündigungen und Aktionen hier, jede mit Datum.",
     beispiel: true
   }
 ];
 
-/* Wohin das Formular "Mitmachen" schreibt.
-   PLATZHALTER: hier die echte Adresse der Schüler-Geno eintragen. */
+/* WOHIN DIE ANMELDUNGEN GEHEN, wenn die Seite auf einer eigenen Adresse liegt
+   (auf dem claude.ai-Link landen sie in der Redaktion, dafür brauchst du hier nichts).
+
+   FORMULAR_ZIEL  Adresse eines Formular-Dienstes, der Anmeldungen per E-Mail
+                  weiterleitet, zum Beispiel "https://formspree.io/f/abcdwxyz".
+                  Ist sie eingetragen, wird sie zuerst benutzt.
+   KONTAKT_EMAIL  Sonst öffnet das Formular das E-Mail-Programm des Besuchers
+                  mit einer fertigen Nachricht an diese Adresse.
+   PLATZHALTER: Beide Angaben fehlen noch. */
+window.FORMULAR_ZIEL = "";
 window.KONTAKT_EMAIL = "kontakt@example.org";

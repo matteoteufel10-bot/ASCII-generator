@@ -254,3 +254,31 @@ und "Dreimal falten. Fertig."
 - Impressum und Datenschutz ausfüllen (`impressum.html`, `datenschutz.html`).
 - Freigabe der Schulleitung für Schulname und Elefant. Danach den Hinweis "Entwurf" und die Zeile `noindex` in `index.html` entfernen.
 - Vor dem Veröffentlichen: `og:image` und `og:url` in `index.html` mit der echten Adresse füllen (Stelle ist mit DEPLOY STEP markiert).
+
+## 12. Überarbeitung am 17.11. (Design-Skill „tasteskill“ und Animations-Skill)
+
+**Stimme:** Fakten zuerst (copy-registers.md 1). „Du“ für Schüler, „Sie“ im Eltern-Bereich.
+Eine einzige bildhafte Zeile auf der Seite: „Der Elefant vergisst nichts.“ Humor höchstens in kleinen Meldungen.
+
+**Texte:**
+- h1 nennt die Sache: „Termine und Aktionen am haertling“. Darüber die nächste Aktion mit Datum.
+- Überschriften mit Nomen: „Termine und Ankündigungen“, „Aktionen der Schüler-Geno“, „Schultermine für Eltern“,
+  „Fragen von Schülern und Eltern“, „Mitglied werden in der Schüler-Geno“.
+- Raus: acht Kicker in Großbuchstaben, „Dreimal falten. Fertig.“, „Keiner läuft allein.“, „Trag dich ein.“,
+  die Zahlenleiste mit „0 vergessen“, die Kette „Ohne App. Ohne Anmeldung. Ohne Cookies.“,
+  die Elefanten-Metapher in den Fragen und Meldungen.
+- copy-lint: vorher 4 Warnungen, jetzt 1 (die Schrittnummern 1, 2, 3 im Formular, dort gewollt).
+
+**Bewegung:** Nichts blendet mehr beim Scrollen ein. Bewegt wird an drei Stellen: der Einstieg oben beim Laden
+(Wörter steigen aus Masken, etwa 1,1 s), das Scroll-Video, der Falt-Elefant. Dazu Rückmeldungen: Knöpfe 1px hoch
+beim Zeigen, 1px runter und 98,5 % beim Drücken (150, 120, 90 ms). Kein weiches Scrollen.
+
+**Neu:** Anmeldung in drei Schritten mit live gezeichnetem Ausweis (vier KI-Elefanten), Speicherung in der Datenbank
+der Seite, Redaktion unter #redaktion.
+
+**Bewusst nicht übernommen (Regeln des Skills, die gegen frühere Entscheidungen stehen):**
+- Jeder Bereich genau ein oder zwei Bildschirme hoch: würde viel Leerraum erzeugen.
+- Kein festgehaltener Bereich und keine Effekte auf Seiten dieser Art: das Scroll-Video bleibt.
+- Kein Hinweis „Beispiel“: bleibt, solange die Einträge erfunden sind.
+- Dunkle Seite nur für Technik-Seiten: das Schieferblau des Videos bleibt.
+- Große Datumszahl im Zettel „Als Nächstes“: bleibt als Erkennungszeichen.

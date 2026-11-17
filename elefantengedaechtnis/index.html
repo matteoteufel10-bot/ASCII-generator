@@ -2,10 +2,10 @@
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elefantengedächtnis · Ankündigungen und Aktionen am haertling</title>
-<meta name="description" content="Zettel gehen verloren. Der Elefant vergisst nichts. Alle Ankündigungen und Aktionen am Peter-Härtling-Gymnasium Nürtingen an einem Ort, mit Datum.">
-<meta name="theme-color" content="#182b3c">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Elefantengedächtnis: Termine und Aktionen am haertling</title>
+<meta name="description" content="Das schwarze Brett der Schüler-Geno am Peter-Härtling-Gymnasium Nürtingen, mit allen Ankündigungen und der Anmeldung zur Schülergenossenschaft.">
+<meta name="theme-color" content="#111f2c">
 <!-- ENTWURF: Solange die Schulleitung die Seite nicht freigegeben hat, sollen Suchmaschinen sie nicht aufnehmen.
      Nach der Freigabe diese Zeile löschen. -->
 <meta name="robots" content="noindex">
@@ -13,11 +13,15 @@
 <link rel="preload" href="assets/fonts/bricolage-grotesque.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/ibm-plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/seite.css">
+<!-- Der Einstieg: Die Überschrift wartet auf das Skript, statt kurz aufzublitzen. Nach 0,7 Sekunden steht sie in jedem Fall da. -->
+<script>document.documentElement.classList.add('js','m-enter');setTimeout(function(){document.documentElement.classList.add('m-enter-done')},700)</script>
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="de_DE">
-<meta property="og:title" content="Elefantengedächtnis">
-<meta property="og:description" content="Zettel gehen verloren. Der Elefant vergisst nichts. Alle Ankündigungen und Aktionen am haertling an einem Ort.">
+<meta property="og:site_name" content="Elefantengedächtnis">
+<meta property="og:title" content="Termine und Aktionen am haertling">
+<meta property="og:description" content="Das schwarze Brett der Schüler-Geno: jede Ankündigung mit Datum, Uhrzeit und Ort, dazu die Anmeldung zur Schülergenossenschaft.">
+<meta name="twitter:card" content="summary_large_image">
 <!-- DEPLOY STEP: Diese beiden Angaben brauchen die echte Adresse der Seite, sobald sie online ist.
      Beispiel: https://meine-adresse.de/assets/hero-ending.jpg und https://meine-adresse.de/ -->
 <meta property="og:image" content="assets/hero-ending.jpg">
@@ -26,15 +30,11 @@
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 
-<!-- Eine feste Ebene hinter allem: Licht, Papierstaub, treibende Blätter -->
-<div class="env" aria-hidden="true">
-  <div class="env-light"></div>
-  <div class="env-dust"></div>
-  <i class="leaf l1"></i><i class="leaf l2"></i><i class="leaf l3"></i><i class="leaf l4"></i><i class="leaf l5"></i>
-</div>
+<!-- Eine feste, ruhige Ebene hinter allem: Licht und Papierstaub aus dem Video -->
+<div class="env" aria-hidden="true"><div class="env-light"></div><div class="env-dust"></div></div>
 
 <header class="nav" id="nav">
-  <a class="brand" href="#top" aria-label="Elefantengedächtnis, nach oben">
+  <a class="brand" href="#top" aria-label="Elefantengedächtnis, zum Anfang der Seite">
     <svg class="mark" viewBox="0 0 240 150" aria-hidden="true">
       <g stroke-linejoin="round">
         <polygon class="f3" points="16,72 56,30 46,58"/>
@@ -49,12 +49,12 @@
     <span class="draft">Entwurf</span>
   </a>
   <nav class="links" aria-label="Bereiche der Seite">
-    <a href="#ankuendigungen">Ankündigungen</a>
+    <a href="#termine">Termine</a>
     <a href="#aktionen">Aktionen</a>
-    <a href="#eltern">Für Eltern</a>
+    <a href="#eltern">Eltern</a>
     <a href="#fragen">Fragen</a>
   </nav>
-  <a class="btn btn-accent nav-cta" href="#mitmachen">Mitmachen</a>
+  <a class="btn btn-accent nav-cta" href="#mitglied">Mitglied werden</a>
 </header>
 
 <main id="main" tabindex="-1">
@@ -62,7 +62,7 @@
 <!-- ======================================================================
      HERO: das Scroll-Video
      ====================================================================== -->
-<section class="hero" id="top" aria-label="Einstieg">
+<section class="hero site-view" id="top" aria-labelledby="hero-titel" data-enter>
 
   <!-- Scroll-Bühne (Laptops und PCs) -->
   <div class="stage" id="stage">
@@ -73,24 +73,32 @@
       <div class="scrim"></div>
     </div>
 
-    <div class="band" data-a="0" data-b="0.21" data-fx="scatter" data-spread="0.5" style="--sa:.86">
-      <p class="line" data-split>Zettel gehen verloren.</p>
+    <div class="band band-hero" data-a="0" data-b="0.21" style="--sa:.9">
+      <p class="pill hero-next" data-next-pill data-leer><a href="#jetzt"><span class="pill-label">Als Nächstes</span> <span data-next-text></span></a></p>
+      <h1 class="hero-h1" id="hero-titel" data-enter-words>Termine und Aktionen am haertling</h1>
+      <p class="hero-sub" data-enter-rest>Das schwarze Brett der Schüler-Geno für Schüler und Eltern. Jede Ankündigung steht hier mit Datum, Uhrzeit und Ort.</p>
+      <div class="hero-cta" data-enter-rest>
+        <a class="btn btn-accent btn-big" href="#mitglied">Mitglied werden</a>
+        <a class="textlink" href="#termine">Termine ansehen</a>
+      </div>
     </div>
 
     <div class="band" data-a="0.25" data-b="0.47" data-fx="drift" style="--sa:.88">
-      <p class="line"><span class="hl" data-split data-off="0">Im Ranzen.</span> <span class="hl" data-split data-off="0.2">Im Chat.</span> <span class="hl" data-split data-off="0.4">Im Kopf.</span></p>
+      <p class="line" data-split>Zettel gehen verloren.</p>
+      <p class="band-small">Im Ranzen, im Klassenchat, am Brett im Foyer.</p>
     </div>
 
-    <div class="band" data-a="0.51" data-b="0.73" data-fx="depth">
-      <p class="line" data-split>Einer vergisst nichts.</p>
+    <div class="band" data-a="0.51" data-b="0.73" data-fx="depth" style="--sa:.86">
+      <p class="line" data-split>Der Elefant vergisst nichts.</p>
+      <p class="band-small">Auch wenn ein Termin vorbei ist, steht er hier weiter mit Datum.</p>
     </div>
 
     <div class="band band-settle" data-a="0.78" data-b="1" data-fx="rise" data-ramp="0.07">
-      <h1 class="line line-h1" data-split>Elefantengedächtnis.</h1>
-      <p class="settle-sub">Alle Ankündigungen und Aktionen am haertling. An einem Ort. Mit Datum.</p>
+      <p class="line line-brand" data-split>Elefantengedächtnis</p>
+      <p class="settle-sub" data-count-text>Das schwarze Brett der Schüler-Geno am haertling.</p>
       <div class="settle-cta">
-        <a class="btn btn-accent btn-big" href="#mitmachen">Mitmachen</a>
-        <a class="textlink" href="#ankuendigungen">Was steht an?</a>
+        <a class="btn btn-accent btn-big" href="#mitglied">Mitglied werden</a>
+        <a class="textlink" href="#termine">Termine ansehen</a>
       </div>
     </div>
 
@@ -108,290 +116,385 @@
   <div class="still" id="still">
     <div class="still-img" aria-hidden="true"></div>
     <div class="still-copy">
-      <p class="kicker">haertling, Nürtingen</p>
-      <h1 class="still-h1">Elefanten&shy;gedächtnis.</h1>
-      <p class="still-sub">Zettel gehen verloren. Der Elefant vergisst nichts. Alle Ankündigungen und Aktionen am haertling, an einem Ort.</p>
-      <div class="still-cta">
-        <a class="btn btn-accent btn-big" href="#mitmachen">Mitmachen</a>
-        <a class="textlink" href="#ankuendigungen">Was steht an?</a>
+      <p class="pill hero-next" data-next-pill data-leer><a href="#jetzt"><span class="pill-label">Als Nächstes</span> <span data-next-text></span></a></p>
+      <h1 class="hero-h1" data-enter-words>Termine und Aktionen am haertling</h1>
+      <p class="hero-sub" data-enter-rest>Das schwarze Brett der Schüler-Geno für Schüler und Eltern. Jede Ankündigung steht hier mit Datum, Uhrzeit und Ort.</p>
+      <div class="hero-cta" data-enter-rest>
+        <a class="btn btn-accent btn-big" href="#mitglied">Mitglied werden</a>
+        <a class="textlink" href="#termine">Termine ansehen</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ======================================================================
-     6.1 ALS NÄCHSTES
+     ALS NÄCHSTES (der Zettel, der sich zum Elefanten faltet)
      ====================================================================== -->
-<section class="sec sec-jetzt" id="jetzt" data-in aria-labelledby="jetzt-titel">
+<section class="sec sec-jetzt site-view" id="jetzt" aria-labelledby="jetzt-titel">
   <div class="wrap">
-    <div class="part" style="--i:0">
-      <article class="next on-paper" id="next">
-        <div class="next-date" aria-hidden="true">
-          <span class="next-day" id="next-day">00</span>
-          <span class="next-month" id="next-month">Monat</span>
-          <span class="next-weekday" id="next-weekday">Wochentag</span>
-        </div>
-        <div class="next-body">
-          <p class="kicker kicker-ink">Als Nächstes <span class="chip chip-when" id="next-when"></span></p>
-          <h2 class="next-title" id="jetzt-titel">Gerade steht nichts an. Der Elefant meldet sich.</h2>
-          <p class="next-text" id="next-text"></p>
-          <p class="next-meta" id="next-meta"></p>
-          <div class="next-actions" id="next-actions">
-            <a class="btn btn-ink" id="next-join" href="#mitmachen">Mitmachen</a>
-            <button class="hold hold-big" id="next-hold" type="button" aria-pressed="false">
+    <article class="next on-paper" id="next">
+      <div class="next-date" id="next-date" aria-hidden="true">
+        <span class="next-day" id="next-day"></span>
+        <span class="next-month" id="next-month"></span>
+        <span class="next-weekday" id="next-weekday"></span>
+      </div>
+      <div class="next-body">
+        <p class="next-label">Als Nächstes <span class="chip" id="next-when"></span></p>
+        <h2 class="next-title" id="jetzt-titel">Termine werden geladen</h2>
+        <p class="next-text" id="next-text"></p>
+        <p class="next-meta" id="next-meta"></p>
+        <div class="next-actions" id="next-actions" hidden>
+          <a class="btn btn-line-ink" id="next-join" href="#mitglied">Mithelfen</a>
+          <span class="hold-wrap">
+            <button class="hold" id="next-hold" type="button" aria-pressed="false" aria-describedby="next-hold-hint">
               <span class="hold-fill" aria-hidden="true"></span>
-              <span class="hold-label">Halten zum Merken</span>
+              <span class="hold-label">Termin merken</span>
             </button>
-          </div>
-          <p class="next-done" id="next-done" aria-live="polite">
-            <span class="nd nd1">Der Elefant hat es sich gemerkt.</span>
-            <a class="nd nd2 textlink textlink-ink" id="next-ics" href="#">In meinen Kalender</a>
-          </p>
+            <span class="hold-hint" id="next-hold-hint">Zum Merken gedrückt halten</span>
+          </span>
         </div>
+        <p class="next-done" id="next-done" aria-live="polite">
+          <span class="nd nd1">Gemerkt. Auf diesem Gerät trägt der Termin jetzt einen Elefanten.</span>
+          <a class="nd nd2 textlink textlink-ink" id="next-ics" href="#" data-ics hidden>In den Kalender eintragen</a>
+        </p>
+      </div>
 
-        <!-- Der eine Mitmach-Moment: Der Zettel faltet sich zum Elefanten -->
-        <div class="fold" id="fold" aria-hidden="true">
-          <div class="fold-sheet"></div>
-          <div class="facet fa1"></div>
-          <div class="facet fa2"></div>
-          <div class="facet fa3"></div>
-          <div class="facet fa4"></div>
-          <div class="facet fa5"></div>
-          <div class="facet fa6"></div>
-          <svg class="fold-lines" viewBox="0 0 240 150">
-            <path pathLength="100" d="M16 72L56 30L142 22L150 10L214 26L226 54L202 122L178 122L176 112L192 108L192 78L168 82L156 66L168 136L142 136L108 90L82 77L50 136L26 136L46 58Z"/>
-            <path pathLength="100" d="M56 30L46 58L108 90L156 66L142 22M192 78L226 54M46 58L82 77"/>
-          </svg>
-        </div>
-      </article>
-    </div>
+      <!-- Der Mitmach-Moment: Der Zettel faltet sich zum Elefanten -->
+      <div class="fold" id="fold" aria-hidden="true">
+        <div class="fold-sheet"></div>
+        <div class="facet fa1"></div>
+        <div class="facet fa2"></div>
+        <div class="facet fa3"></div>
+        <div class="facet fa4"></div>
+        <div class="facet fa5"></div>
+        <div class="facet fa6"></div>
+        <svg class="fold-lines" viewBox="0 0 240 150">
+          <path pathLength="100" d="M16 72L56 30L142 22L150 10L214 26L226 54L202 122L178 122L176 112L192 108L192 78L168 82L156 66L168 136L142 136L108 90L82 77L50 136L26 136L46 58Z"/>
+          <path pathLength="100" d="M56 30L46 58L108 90L156 66L142 22M192 78L226 54M46 58L82 77"/>
+        </svg>
+      </div>
+    </article>
   </div>
 </section>
 
-<div class="foldline" data-in aria-hidden="true"><span></span></div>
-
 <!-- ======================================================================
-     6.2 ANKÜNDIGUNGEN
+     TERMINE UND ANKÜNDIGUNGEN
      ====================================================================== -->
-<section class="sec sec-board" id="ankuendigungen" data-in aria-labelledby="board-titel">
+<section class="sec sec-board site-view" id="termine" aria-labelledby="board-titel">
   <div class="wrap">
-    <div class="board-head">
-      <div class="board-intro">
-        <p class="kicker part" style="--i:0">Das Gedächtnis</p>
-        <h2 class="h2 part" style="--i:1" id="board-titel">Was <span class="mark-word">ansteht.</span></h2>
-        <p class="lede part" style="--i:2">Alles, was am haertling angekündigt ist. Das Nächste steht oben, Vergangenes wandert von selbst nach unten.</p>
-      </div>
-      <dl class="counts part" style="--i:3" id="counts">
-        <div class="count"><dt>Einträge im Gedächtnis</dt><dd data-count="all">0</dd></div>
-        <div class="count"><dt>stehen an</dt><dd data-count="open">0</dd></div>
-        <div class="count count-zero"><dt>vergessen</dt><dd>0</dd></div>
-      </dl>
+    <div class="sec-head">
+      <h2 class="h2" id="board-titel">Termine und Ankündigungen</h2>
+      <p class="lede" data-board-lede>Das Nächste steht oben. Was vorbei ist, findest du weiter unten unter „Schon gewesen“.</p>
     </div>
 
-    <div class="filters part" style="--i:4" role="group" aria-label="Einträge filtern">
+    <div class="filters" role="group" aria-label="Einträge filtern">
       <button class="filter" type="button" data-filter="alle" aria-pressed="true">Alles</button>
-      <button class="filter" type="button" data-filter="Ankündigung" aria-pressed="false">Ankündigungen</button>
       <button class="filter" type="button" data-filter="Aktion" aria-pressed="false">Aktionen</button>
+      <button class="filter" type="button" data-filter="Ankündigung" aria-pressed="false">Ankündigungen</button>
       <button class="filter" type="button" data-filter="Termin" aria-pressed="false">Termine</button>
     </div>
 
     <div class="sheets" id="sheets" aria-live="polite"></div>
-    <p class="empty" id="sheets-empty" hidden>Dazu steht gerade nichts an.</p>
+    <p class="empty" id="sheets-empty" hidden></p>
 
-    <div class="archive" id="archive" hidden>
-      <button class="archive-toggle" id="archive-toggle" type="button" aria-expanded="false" aria-controls="archive-panel">
-        <span class="plus" aria-hidden="true"></span>
-        <span>Schon gewesen</span>
-        <span class="archive-n" id="archive-n"></span>
-      </button>
-      <div class="fold-panel" id="archive-panel">
-        <div class="fold-inner">
-          <ul class="archive-list" id="archive-list"></ul>
-        </div>
-      </div>
-    </div>
+    <details class="archive" id="archive" hidden>
+      <summary class="archive-toggle"><span class="plus" aria-hidden="true"></span><span>Schon gewesen</span> <span class="archive-n" id="archive-n"></span></summary>
+      <ul class="archive-list" id="archive-list"></ul>
+    </details>
 
     <noscript><p class="empty">Die Einträge brauchen JavaScript. Bitte schalte es in deinem Browser ein.</p></noscript>
   </div>
 </section>
 
 <!-- ======================================================================
-     6.3 AKTIONEN
+     AKTIONEN
      ====================================================================== -->
-<section class="sec sec-herd" id="aktionen" data-in aria-labelledby="herd-titel">
-  <div class="herd-stage">
-    <div class="herd-mask"><img class="herd-img" src="assets/bild-herde.jpg" width="1920" height="1086" alt="Sieben gefaltete Papier-Elefanten, große und kleine, laufen gemeinsam in einer Reihe." loading="lazy" decoding="async"></div>
-    <div class="herd-copy wrap">
-      <p class="kicker part" style="--i:0">Aktionen</p>
-      <h2 class="h2 h2-xl part" style="--i:1" id="herd-titel">Keiner läuft <span class="mark-word">allein.</span></h2>
-      <p class="lede part" style="--i:2">Aktionen leben von Leuten, die kommen. Such dir eine aus und sei dabei.</p>
-    </div>
+<section class="sec sec-herd site-view" id="aktionen" aria-labelledby="herd-titel">
+  <div class="wrap sec-head">
+    <h2 class="h2" id="herd-titel">Aktionen der Schüler-Geno</h2>
+    <p class="lede">Für jede Aktion braucht die Schüler-Geno Leute, die aufbauen, verkaufen und aufräumen. Such dir eine aus und trag dich zum Helfen ein.</p>
   </div>
   <div class="wrap">
+    <div class="herd-band">
+      <img class="herd-img" src="assets/bild-herde.jpg" srcset="assets/bild-herde-900.jpg 900w, assets/bild-herde.jpg 1920w" sizes="(max-width: 1240px) 100vw, 1180px" width="1920" height="1086" alt="Sieben gefaltete Papier-Elefanten, große und kleine, laufen in einer Reihe." loading="lazy" decoding="async">
+    </div>
     <ol class="rows" id="rows"></ol>
-    <p class="empty" id="rows-empty" hidden>Die nächste Aktion ist schon in Arbeit.</p>
+    <p class="empty" id="rows-empty" hidden>Gerade ist keine Aktion geplant. Neue Aktionen stehen hier, sobald die Redaktion sie einträgt.</p>
   </div>
 </section>
 
 <!-- ======================================================================
-     6.4 SO GEHT'S
+     FÜR ELTERN (heller Bereich)
      ====================================================================== -->
-<section class="sec sec-steps" id="so-gehts" data-in aria-labelledby="steps-titel">
-  <div class="wrap">
-    <div class="steps-head">
-      <p class="kicker part" style="--i:0">So geht's</p>
-      <h2 class="h2 part" style="--i:1" id="steps-titel">Dreimal falten. Fertig.</h2>
-    </div>
-    <div class="steps">
-      <svg class="steps-thread" viewBox="0 0 1000 40" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0 20 C 180 2, 320 38, 500 20 S 820 2, 1000 20"/>
-      </svg>
-      <ol class="steps-list">
-        <li class="step part" style="--i:2">
-          <svg class="diagram" viewBox="0 0 160 120" aria-hidden="true">
-            <polygon class="d-paper" points="34,18 126,18 126,102 34,102"/>
-            <path class="d-fold" d="M34 102L126 18"/>
-            <path class="d-arrow" d="M58 44c10-14 28-18 44-8M102 36l-9-1M102 36l-1 9"/>
-          </svg>
-          <p class="step-n">1</p>
-          <h3 class="step-title">Aussuchen</h3>
-          <p class="step-text">Such dir eine Aktion aus, die dich reizt.</p>
-        </li>
-        <li class="step part" style="--i:3">
-          <svg class="diagram" viewBox="0 0 160 120" aria-hidden="true">
-            <polygon class="d-paper d-back" points="34,102 126,18 126,102"/>
-            <polygon class="d-paper" points="34,102 126,18 92,60 70,96"/>
-            <path class="d-fold" d="M70 96L126 18"/>
-            <path class="d-arrow" d="M52 60c4-16 18-26 34-26M86 34l-8 4M86 34l-3-8"/>
-          </svg>
-          <p class="step-n">2</p>
-          <h3 class="step-title">Eintragen</h3>
-          <p class="step-text">Vorname und Klasse reichen.</p>
-        </li>
-        <li class="step part" style="--i:4">
-          <svg class="diagram" viewBox="0 0 240 150" aria-hidden="true">
-            <g class="d-ele" stroke-linejoin="round">
-              <polygon class="f3" points="16,72 56,30 46,58"/>
-              <polygon class="f1" points="56,30 142,22 156,66 108,90 46,58"/>
-              <polygon class="f4" points="46,58 82,77 50,136 26,136"/>
-              <polygon class="f3" points="108,90 156,66 168,136 142,136"/>
-              <polygon class="f2" points="142,22 150,10 214,26 226,54 192,78 168,82 156,66"/>
-              <polygon class="f4" points="226,54 202,122 178,122 176,112 192,108 192,78"/>
-            </g>
-          </svg>
-          <p class="step-n">3</p>
-          <h3 class="step-title">Kommen</h3>
-          <p class="step-text">Sei zur Uhrzeit am Treffpunkt. Den Rest machen wir zusammen.</p>
-        </li>
-      </ol>
-    </div>
-  </div>
-</section>
-
-<!-- ======================================================================
-     6.5 FÜR ELTERN
-     ====================================================================== -->
-<section class="sec sec-parents" id="eltern" data-in aria-labelledby="parents-titel">
+<section class="sec sec-light sec-parents site-view" id="eltern" aria-labelledby="parents-titel">
   <div class="wrap parents">
-    <figure class="parents-fig part" style="--i:0">
-      <img src="assets/bild-eltern.jpg" width="1400" height="1045" alt="Ein großer gefalteter Papier-Elefant steht schützend über einem kleinen." loading="lazy" decoding="async">
+    <figure class="parents-fig">
+      <img src="assets/bild-eltern.jpg" srcset="assets/bild-eltern-900.jpg 900w, assets/bild-eltern.jpg 1400w" sizes="(max-width: 1024px) 92vw, 480px" width="1400" height="1045" alt="Ein großer gefalteter Papier-Elefant steht schützend über einem kleinen." loading="lazy" decoding="async">
     </figure>
     <div class="parents-copy">
-      <p class="kicker part" style="--i:1">Für Eltern</p>
-      <h2 class="h2 part" style="--i:2" id="parents-titel">Sie müssen nicht mehr im <span class="mark-word">Ranzen</span> suchen.</h2>
-      <p class="lede part" style="--i:3">Elternbrief, Zettel, Klassenchat. Irgendwo stand es. Hier steht es sicher: alle Termine und Aktionen der Schule an einem Ort, sortiert nach Datum.</p>
-      <ul class="without part" style="--i:4">
-        <li>Ohne App.</li>
-        <li>Ohne Anmeldung.</li>
-        <li>Ohne Cookies.</li>
-      </ul>
-      <p class="part" style="--i:5"><a class="textlink" href="#ankuendigungen">Zu den Terminen</a></p>
+      <h2 class="h2" id="parents-titel">Schultermine für Eltern</h2>
+      <p class="lede">Elternsprechtag, letzter Schultag, Basar: Jeder Termin steht hier mit Datum, Uhrzeit und Ort. Lesen können Sie ohne Konto und ohne App.</p>
+      <ul class="timetable" id="eltern-liste"></ul>
+      <p><a class="textlink textlink-ink" href="#termine">Alle Termine ansehen</a></p>
     </div>
   </div>
 </section>
 
-<div class="foldline" data-in aria-hidden="true"><span></span></div>
-
 <!-- ======================================================================
-     6.6 FRAGEN
+     FRAGEN (alle Antworten offen)
      ====================================================================== -->
-<section class="sec sec-faq" id="fragen" data-in aria-labelledby="faq-titel">
-  <div class="wrap wrap-narrow">
-    <p class="kicker part" style="--i:0">Fragen</p>
-    <h2 class="h2 part" style="--i:1" id="faq-titel">Kurz gefragt.</h2>
-
-    <div class="faq part" style="--i:2">
+<section class="sec sec-faq site-view" id="fragen" aria-labelledby="faq-titel">
+  <div class="wrap">
+    <h2 class="h2" id="faq-titel">Fragen von Schülern und Eltern</h2>
+    <div class="faq">
       <div class="qa">
-        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a1" id="q1"><span>Ist das die offizielle Seite der Schule?</span><span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="fold-panel" id="a1" role="region" aria-labelledby="q1"><div class="fold-inner"><p>Nein. Die offizielle Seite ist <a href="https://phg-nuertingen.de/" rel="noopener">phg-nuertingen.de</a>. Das Elefantengedächtnis ist ein Projekt der Schüler-Geno. Es sammelt Ankündigungen und Aktionen an einem Ort.</p></div></div>
+        <h3>Ist das die offizielle Seite der Schule?</h3>
+        <p>Nein. Die offizielle Seite ist <a class="textlink" href="https://phg-nuertingen.de/" rel="noopener">phg-nuertingen.de</a>. Das Elefantengedächtnis ist ein Projekt der Schüler-Geno und sammelt die Ankündigungen und Aktionen an einem Ort.</p>
       </div>
       <div class="qa">
-        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a2" id="q2"><span>Wer trägt die Einträge ein?</span><span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="fold-panel" id="a2" role="region" aria-labelledby="q2"><div class="fold-inner"><p>Die Schüler-Geno. Jeder Eintrag bekommt ein Datum, damit du siehst, wie frisch er ist.</p></div></div>
+        <h3>Wer trägt die Termine ein?</h3>
+        <p>Die Redaktion der Schüler-Geno. Jeder Eintrag hat ein Datum, deshalb siehst du sofort, ob er noch gilt.</p>
       </div>
       <div class="qa">
-        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a3" id="q3"><span>Wie kommt meine Aktion auf die Seite?</span><span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="fold-panel" id="a3" role="region" aria-labelledby="q3"><div class="fold-inner"><p>Schreib uns über das Formular unten. Sag kurz, was du vorhast, wann und wo.</p></div></div>
+        <h3>Wer sieht meine Angaben aus der Anmeldung?</h3>
+        <p>Nur die Redaktion der Schüler-Geno. Sie braucht Name und Klasse, um dich als Mitglied aufzunehmen oder für eine Aktion einzuplanen.</p>
       </div>
       <div class="qa">
-        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a4" id="q4"><span>Was passiert mit alten Einträgen?</span><span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="fold-panel" id="a4" role="region" aria-labelledby="q4"><div class="fold-inner"><p>Sie wandern von selbst nach unten zu „Schon gewesen“. Gelöscht wird nichts. Elefanten vergessen nicht.</p></div></div>
+        <h3>Wie kommt meine Idee für eine Aktion auf die Seite?</h3>
+        <p>Schreib sie bei der Anmeldung ins Feld „Nachricht“. Die Redaktion meldet sich dann bei dir.</p>
       </div>
       <div class="qa">
-        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a5" id="q5"><span>Brauche ich eine App oder ein Konto?</span><span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="fold-panel" id="a5" role="region" aria-labelledby="q5"><div class="fold-inner"><p>Nein. Die Seite läuft im Browser, ohne Anmeldung, ohne Cookies, ohne Tracking.</p></div></div>
+        <h3>Was macht der Knopf „Termin merken“?</h3>
+        <p>Halte ihn kurz gedrückt. Der Termin bekommt auf diesem Gerät einen kleinen Elefanten, damit du ihn beim nächsten Besuch sofort findest.</p>
       </div>
       <div class="qa">
-        <h3><button class="q" type="button" aria-expanded="false" aria-controls="a6" id="q6"><span>Was macht der Knopf „Merken“?</span><span class="plus" aria-hidden="true"></span></button></h3>
-        <div class="fold-panel" id="a6" role="region" aria-labelledby="q6"><div class="fold-inner"><p>Halte ihn kurz gedrückt. Danach kannst du den Termin in deinen Kalender laden. Gemerkt wird nur auf deinem Gerät.</p></div></div>
+        <h3>Was passiert mit alten Einträgen?</h3>
+        <p>Sie stehen weiter unter „Schon gewesen“, mit Datum.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ======================================================================
-     6.7 MITMACHEN
+     MITGLIED WERDEN: Anmeldung mit Ausweis
      ====================================================================== -->
-<section class="sec sec-join" id="mitmachen" data-in aria-labelledby="join-titel">
-  <img class="join-img" src="assets/bild-blatt.jpg" width="1920" height="1086" alt="" loading="lazy" decoding="async">
-  <div class="wrap join">
-    <div class="join-copy">
-      <p class="kicker part" style="--i:0">Mitmachen</p>
-      <h2 class="h2 h2-xl part" style="--i:1" id="join-titel">Trag dich <span class="mark-word">ein.</span></h2>
-      <p class="lede part" style="--i:2">Sag uns, bei welcher Aktion du dabei bist. Wir melden uns bei dir.</p>
+<section class="sec sec-join site-view" id="mitglied" aria-labelledby="join-titel">
+  <img class="join-img" src="assets/bild-blatt.jpg" srcset="assets/bild-blatt-900.jpg 900w, assets/bild-blatt.jpg 1920w" sizes="100vw" width="1920" height="1086" alt="" loading="lazy" decoding="async">
+  <div class="wrap">
+    <div class="sec-head join-head">
+      <h2 class="h2" id="join-titel"><span class="mark-word">Mitglied</span> werden in der Schüler-Geno</h2>
+      <p class="lede">Die Schüler-Geno ist die Schülergenossenschaft am haertling. Ihre Mitglieder planen den Pausenverkauf und die Aktionen und stimmen in der Mitgliederversammlung ab. Während du das Formular ausfüllst, entsteht dein Ausweis.</p>
     </div>
 
-    <div class="part" style="--i:3">
-      <form class="form on-paper" id="form" novalidate>
-        <div class="form-fields" id="form-fields">
-          <div class="field">
-            <label for="f-name">Vorname</label>
-            <input id="f-name" name="vorname" type="text" autocomplete="given-name" placeholder="Mia" required aria-describedby="f-name-err">
-            <p class="err" id="f-name-err" hidden>Bitte trag deinen Vornamen ein.</p>
-          </div>
-          <div class="field">
-            <label for="f-klasse">Klasse <span class="opt">wenn du magst</span></label>
-            <input id="f-klasse" name="klasse" type="text" placeholder="8b" autocomplete="off">
-          </div>
-          <div class="field field-wide">
-            <label for="f-aktion">Aktion</label>
-            <select id="f-aktion" name="aktion"></select>
-          </div>
-          <div class="field field-wide">
-            <label for="f-text">Nachricht <span class="opt">wenn du magst</span></label>
-            <textarea id="f-text" name="nachricht" rows="3" placeholder="Ich kann beim Aufbau helfen."></textarea>
-          </div>
-          <div class="form-foot field-wide">
-            <button class="btn btn-accent btn-big" type="submit">Ich bin dabei</button>
-            <p class="form-note">Das Formular öffnet dein E-Mail-Programm. Erst wenn du dort auf Senden drückst, kommt deine Nachricht bei der Schüler-Geno an. Auf dieser Seite wird nichts gespeichert.</p>
+    <div class="join-grid">
+      <div class="ausweis-wrap">
+        <canvas class="ausweis" id="ausweis" width="1012" height="638" role="img" aria-label="Vorschau deines Ausweises der Schüler-Geno"></canvas>
+      </div>
+
+      <form class="form on-paper" id="anmeldung" novalidate aria-labelledby="join-titel">
+        <ol class="stepbar" id="stepbar">
+          <li data-step-dot="1" aria-current="step"><span class="dot">1</span> Auswahl</li>
+          <li data-step-dot="2"><span class="dot">2</span> Angaben</li>
+          <li data-step-dot="3"><span class="dot">3</span> Ausweis</li>
+        </ol>
+
+        <div class="step-stack" id="step-stack">
+
+          <fieldset class="step is-active" data-step="1">
+            <legend class="step-title">Art der Anmeldung</legend>
+            <div class="choices">
+              <label class="choice">
+                <input type="radio" name="art" value="mitglied" id="art-mitglied" checked>
+                <span class="choice-title">Mitglied werden</span>
+                <span class="choice-text">Du gehörst zur Genossenschaft und stimmst in der Mitgliederversammlung mit ab.</span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="art" value="helfer" id="art-helfer">
+                <span class="choice-title">Bei einer Aktion helfen</span>
+                <span class="choice-text">Du hilfst bei einer Aktion mit, die du dir aussuchst.</span>
+              </label>
+            </div>
+            <div class="field" id="feld-aktion" hidden>
+              <label for="f-aktion">Aktion</label>
+              <select id="f-aktion" name="aktion" aria-describedby="f-aktion-err"></select>
+              <p class="err" id="f-aktion-err" hidden>Wähle die Aktion, bei der du helfen willst.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="2">
+            <legend class="step-title">Deine Angaben</legend>
+            <div class="form-fields">
+              <div class="field">
+                <label for="f-vorname">Vorname</label>
+                <input id="f-vorname" name="vorname" type="text" autocomplete="given-name" maxlength="40" required aria-describedby="f-vorname-err">
+                <p class="err" id="f-vorname-err" hidden>Schreib deinen Vornamen hier hin.</p>
+              </div>
+              <div class="field">
+                <label for="f-nachname">Nachname</label>
+                <input id="f-nachname" name="nachname" type="text" autocomplete="family-name" maxlength="40" aria-describedby="f-nachname-err">
+                <p class="err" id="f-nachname-err" hidden>Für die Mitgliedschaft braucht die Schüler-Geno deinen Nachnamen.</p>
+              </div>
+              <div class="field">
+                <label for="f-klasse">Klasse</label>
+                <input id="f-klasse" name="klasse" type="text" autocomplete="off" maxlength="6" placeholder="8b" required aria-describedby="f-klasse-err">
+                <p class="err" id="f-klasse-err" hidden>Schreib deine Klasse, zum Beispiel 8b.</p>
+              </div>
+              <fieldset class="field field-wide bereiche">
+                <legend class="label">Wobei du gern hilfst <span class="opt">mehrere möglich</span></legend>
+                <div class="tags">
+                  <label class="tag"><input type="checkbox" name="bereich" value="Pausenverkauf"><span>Pausenverkauf</span></label>
+                  <label class="tag"><input type="checkbox" name="bereich" value="Aufbau und Abbau"><span>Aufbau und Abbau</span></label>
+                  <label class="tag"><input type="checkbox" name="bereich" value="Plakate und Werbung"><span>Plakate und Werbung</span></label>
+                  <label class="tag"><input type="checkbox" name="bereich" value="Kasse"><span>Kasse</span></label>
+                  <label class="tag"><input type="checkbox" name="bereich" value="Technik"><span>Technik</span></label>
+                </div>
+              </fieldset>
+              <div class="field field-wide">
+                <label for="f-nachricht">Nachricht <span class="opt">freiwillig</span></label>
+                <textarea id="f-nachricht" name="nachricht" rows="2" maxlength="500" placeholder="Zum Beispiel eine Idee für eine Aktion"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="step" data-step="3">
+            <legend class="step-title">Dein Ausweis</legend>
+            <fieldset class="field swatch-set">
+              <legend class="label">Farbe des Elefanten</legend>
+              <div class="swatches">
+                <label class="swatch"><input type="radio" name="farbe" value="gelb" checked><img src="assets/ausweis/elefant-gelb.webp" width="720" height="472" alt=""><span>Gelb</span></label>
+                <label class="swatch"><input type="radio" name="farbe" value="blau"><img src="assets/ausweis/elefant-blau.webp" width="720" height="468" alt=""><span>Blau</span></label>
+                <label class="swatch"><input type="radio" name="farbe" value="rot"><img src="assets/ausweis/elefant-rot.webp" width="720" height="492" alt=""><span>Rot</span></label>
+                <label class="swatch"><input type="radio" name="farbe" value="gruen"><img src="assets/ausweis/elefant-gruen.webp" width="720" height="472" alt=""><span>Grün</span></label>
+              </div>
+            </fieldset>
+            <div class="field">
+              <label class="check"><input type="checkbox" id="f-ok-daten" name="einverstanden" aria-describedby="f-ok-daten-err"><span>Ich bin einverstanden, dass die Redaktion der Schüler-Geno meinen Namen, meine Klasse und meine Nachricht für diese Anmeldung speichert.</span></label>
+              <p class="err" id="f-ok-daten-err" hidden>Ohne dein Einverständnis kann die Schüler-Geno die Anmeldung nicht speichern.</p>
+            </div>
+            <div class="field" id="feld-eltern">
+              <label class="check"><input type="checkbox" id="f-ok-eltern" name="eltern" aria-describedby="f-ok-eltern-err"><span>Meine Eltern wissen, dass ich Mitglied werden will.</span></label>
+              <p class="err" id="f-ok-eltern-err" hidden>Für die Mitgliedschaft müssen deine Eltern Bescheid wissen.</p>
+            </div>
+          </fieldset>
+
+          <div class="step step-ok" data-step="ok" tabindex="-1">
+            <p class="ok-title" id="ok-titel">Deine Anmeldung ist da.</p>
+            <p class="ok-text" id="ok-text">Die Redaktion der Schüler-Geno sieht sie jetzt und spricht dich in der Schule an.</p>
+            <div class="ok-actions">
+              <button class="btn btn-line-ink" type="button" id="ausweis-speichern" hidden>Ausweis speichern</button>
+              <button class="textlink textlink-ink" type="button" id="neu-anmelden">Noch jemanden anmelden</button>
+            </div>
           </div>
         </div>
-        <div class="form-ok" id="form-ok" tabindex="-1" hidden>
-          <p class="ok-title">Fast geschafft.</p>
-          <p>Dein E-Mail-Programm hat sich geöffnet. Drück dort auf Senden, dann bist du dabei.</p>
+
+        <div class="form-nav" id="form-nav">
+          <button class="textlink textlink-ink" type="button" id="zurueck" hidden>Zurück</button>
+          <button class="btn btn-line-ink" type="button" id="weiter">Weiter</button>
+          <button class="btn btn-accent" type="submit" id="senden" hidden>Anmeldung senden</button>
         </div>
-        <p class="form-warn" id="form-warn" hidden>Vorschau: Die Adresse der Schüler-Geno ist noch nicht eingetragen. Es wird nichts verschickt.</p>
+        <p class="form-status" id="form-status" role="status"></p>
+        <noscript><p class="form-nav-ohne">Die Anmeldung braucht JavaScript. Bitte schalte es in deinem Browser ein.</p></noscript>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ======================================================================
+     REDAKTION: hier wird die Seite bearbeitet (Adresse mit #redaktion)
+     ====================================================================== -->
+<section class="redaktion" id="redaktion" aria-labelledby="red-titel" hidden>
+  <div class="wrap">
+    <div class="red-head">
+      <p class="next-label red-kicker">Elefantengedächtnis</p>
+      <h1 class="h2" id="red-titel">Redaktion</h1>
+      <p class="lede">Hier trägst du Termine ein, änderst sie und siehst die Anmeldungen.</p>
+      <p class="red-status" id="red-status" role="status">Die Verbindung zur Datenbank wird aufgebaut.</p>
+      <p><a class="textlink" href="#top" id="red-zurueck">Zur Website</a></p>
+    </div>
+
+    <div class="red-grid">
+      <form class="form on-paper red-form" id="red-form" novalidate aria-labelledby="red-form-titel">
+        <h2 class="red-h2" id="red-form-titel">Neuer Eintrag</h2>
+        <div class="form-fields">
+          <div class="field">
+            <label for="r-art">Art</label>
+            <select id="r-art" name="art">
+              <option value="Aktion">Aktion</option>
+              <option value="Ankündigung">Ankündigung</option>
+              <option value="Termin">Termin</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="r-datum">Datum</label>
+            <input id="r-datum" name="datum" type="date" required aria-describedby="r-datum-err">
+            <p class="err" id="r-datum-err" hidden>Wähle ein Datum.</p>
+          </div>
+          <div class="field field-wide">
+            <label for="r-titel">Titel</label>
+            <input id="r-titel" name="titel" type="text" maxlength="90" required aria-describedby="r-titel-err">
+            <p class="err" id="r-titel-err" hidden>Schreib einen Titel, zum Beispiel „Adventsbasar“.</p>
+          </div>
+          <div class="field">
+            <label for="r-von">Beginn <span class="opt">freiwillig</span></label>
+            <input id="r-von" name="von" type="time" aria-describedby="r-von-err">
+            <p class="err" id="r-von-err" hidden>Schreib die Uhrzeit als 15:00.</p>
+          </div>
+          <div class="field">
+            <label for="r-bis">Ende <span class="opt">freiwillig</span></label>
+            <input id="r-bis" name="bis" type="time" aria-describedby="r-bis-err">
+            <p class="err" id="r-bis-err" hidden>Das Ende muss nach dem Beginn liegen.</p>
+          </div>
+          <div class="field field-wide">
+            <label for="r-ort">Ort <span class="opt">freiwillig</span></label>
+            <input id="r-ort" name="ort" type="text" maxlength="60">
+          </div>
+          <div class="field field-wide">
+            <label for="r-text">Text</label>
+            <textarea id="r-text" name="text" rows="3" maxlength="300" aria-describedby="r-text-hint"></textarea>
+            <p class="hint" id="r-text-hint">Ein bis zwei Sätze, höchstens 300 Zeichen.</p>
+          </div>
+          <div class="field field-wide">
+            <label class="check"><input type="checkbox" id="r-beispiel" name="beispiel"><span>Als Beispiel markieren</span></label>
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="btn btn-accent" type="submit" id="r-speichern">Eintrag speichern</button>
+          <button class="textlink textlink-ink" type="button" id="r-abbrechen" hidden>Abbrechen</button>
+        </div>
+        <p class="form-status" id="r-status" role="status"></p>
+      </form>
+
+      <div class="red-list">
+        <div class="red-list-head">
+          <h2 class="red-h2">Einträge <span class="red-n" id="red-n"></span></h2>
+          <button class="textlink danger" type="button" id="red-beispiele-weg" hidden>Alle Beispiele löschen</button>
+        </div>
+        <ul class="red-items" id="red-eintraege"></ul>
+        <div class="red-leer" id="red-leer" hidden>
+          <p>Noch keine Einträge.</p>
+          <button class="btn btn-line" type="button" id="red-import">Beispiele aus inhalte.js übernehmen</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="red-block" id="red-anmeldungen-block" hidden>
+      <div class="red-list-head">
+        <h2 class="red-h2">Anmeldungen <span class="red-n" id="red-an-n"></span></h2>
+        <button class="btn btn-line" type="button" id="red-csv">Liste als CSV speichern</button>
+      </div>
+      <ul class="red-items red-anmeldungen" id="red-anmeldungen"></ul>
+      <p class="red-leer-text" id="red-an-leer">Noch keine Anmeldungen.</p>
+    </div>
+
+    <div class="red-block">
+      <h2 class="red-h2">Datei für die eigene Web-Adresse</h2>
+      <p class="red-text">Liegt die Seite später auf GitHub Pages, ersetzt du dort den Inhalt von <code>assets/inhalte.js</code> durch diesen Text. Dann stehen dieselben Einträge auf der neuen Adresse.</p>
+      <label class="sr" for="red-datei">Inhalt der Datei inhalte.js</label>
+      <textarea class="red-datei" id="red-datei" readonly rows="8" spellcheck="false"></textarea>
+      <div class="form-nav">
+        <button class="btn btn-line" type="button" id="red-kopieren">Text kopieren</button>
+        <span class="form-status" id="red-kopiert" role="status"></span>
+      </div>
     </div>
   </div>
 </section>
@@ -399,7 +502,7 @@
 </main>
 
 <!-- ======================================================================
-     6.8 FUSSZEILE
+     FUSSZEILE
      ====================================================================== -->
 <footer class="foot">
   <div class="wrap foot-grid">
@@ -419,14 +522,13 @@
       <p class="foot-draft">Entwurf. Noch nicht von der Schulleitung freigegeben.</p>
     </div>
     <div class="foot-info">
-      <p>Die offizielle Seite der Schule: <a href="https://phg-nuertingen.de/" rel="noopener">phg-nuertingen.de</a></p>
+      <p>Die offizielle Seite der Schule: <a class="textlink" href="https://phg-nuertingen.de/" rel="noopener">phg-nuertingen.de</a></p>
       <p>Bilder und Video dieser Seite sind mit KI erzeugt.</p>
-      <p>Keine Cookies. Kein Tracking. Die Schriften liegen auf dieser Seite.</p>
     </div>
-    <nav class="foot-links" aria-label="Rechtliches">
+    <nav class="foot-links" aria-label="Weitere Seiten">
       <a href="impressum.html">Impressum</a>
       <a href="datenschutz.html">Datenschutz</a>
-      <a href="#top">Nach oben</a>
+      <a href="#redaktion">Redaktion</a>
     </nav>
   </div>
 </footer>

@@ -12,3 +12,12 @@ Falls die Rohdateien einmal fehlen: Sie liegen im Higgsfield-Konto unter diesen 
 
 Die Rohdateien (Ordner `roh/`) werden nicht ins Projekt eingecheckt, weil sie groß sind.
 Auf die Seite kommen nur die aufbereiteten Dateien in `elefantengedaechtnis/assets/`.
+
+## Ausweis-Elefanten (freigestellt, für den Mitgliedsausweis)
+
+| Farbe | Modell | Auftrag | Credits |
+|---|---|---|---|
+| Gelb | GPT Image 2.6, 1k, hoch, transparent | 92ca6dc6-4deb-4dc9-9ed9-4dcf9ca184ec | 1,5 |
+| Blau | GPT Image 2.6, 1k, hoch, transparent | 460baac4-3d3f-4d99-8504-b3054eccc847 | 1,5 |
+| Rot | GPT Image 2.6, 1k, hoch, transparent | e1ce1c1c-78c5-4611-83a4-c2ffb6053f54 | 1,5 |
+| Grün | GPT Image 2.6, 1k, hoch, transparent | 8821f277-7a14-4ad8-8ef4-b4a3bf4f700d | 1,5 |
