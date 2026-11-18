@@ -11,6 +11,9 @@ Alle drei Werkzeuge haben eine eigene Aufgabe:
 | `2-slidev/` | **Slidev** 53.1.0 | Interaktives Bauelement-Quiz mit 7 Runden für die Klasse |
 | `3-marp/` | **Marp** (Marp CLI 4.5.1) | Handout als PDF zum Austeilen, 3 Seiten A4 |
 
+**Für PowerPoint:** `4-powerpoint/Al-Andalus.pptx` ist eine bearbeitbare PowerPoint-Datei mit 32 Folien. Sie enthält die Hauptpräsentation (Folien 1–15, mit Sprechernotizen) und das Quiz (Folien 16–32, je eine Frage- und eine Auflösungsfolie pro Runde). Die Datei öffnet sich direkt in PowerPoint, Keynote oder Google Präsentationen.
+Die Skripte zum Neu-Erzeugen liegen in `4-powerpoint/erstellen/`.
+
 Gemeinsam genutzt: `bilder/` (Fotos von Wikimedia Commons, siehe `bilder/BILDNACHWEIS.md`) und `schriften/` (Schriften lokal gespeichert, damit alles **ohne Internet** funktioniert).
 
 ---

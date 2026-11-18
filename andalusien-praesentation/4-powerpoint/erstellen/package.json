@@ -1,0 +1,6 @@
+{
+  "name": "andalusien-powerpoint",
+  "private": true,
+  "scripts": { "build": "node praesentation.js" },
+  "dependencies": { "pptxgenjs": "^3.12.0" }
+}
