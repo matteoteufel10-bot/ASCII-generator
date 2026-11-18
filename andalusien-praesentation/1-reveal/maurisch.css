@@ -1,0 +1,480 @@
+/* ==========================================================
+   Theme „Maurisch“ für reveal.js
+   Farben nach der Alhambra: Nachtblau, Gold, Terrakotta,
+   Elfenbein, Fliesen-Türkis. Ornamente als Inline-SVG.
+   ========================================================== */
+
+:root {
+  --nacht: #0d1830;
+  --nacht-2: #15264a;
+  --nacht-3: #1d3260;
+  --gold: #d6a84c;
+  --gold-hell: #f0d78f;
+  --terrakotta: #c0603f;
+  --elfenbein: #f4ead4;
+  --elfenbein-2: #d9ccb0;
+  --tuerkis: #2b8a7e;
+
+  --schrift-titel: 'Cormorant Garamond', 'Georgia', serif;
+  --schrift-text: 'Source Sans 3', 'Segoe UI', system-ui, sans-serif;
+  --schrift-arabisch: 'Amiri', 'Traditional Arabic', serif;
+
+  /* Achtzackiger Stern mit Gitter (Girih-artig) */
+  --muster-stern: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84' viewBox='0 0 84 84'%3E%3Cg fill='none' stroke='%23d6a84c' stroke-width='1'%3E%3Crect x='26' y='26' width='32' height='32'/%3E%3Crect x='26' y='26' width='32' height='32' transform='rotate(45 42 42)'/%3E%3Cpath d='M0 0L26 26M84 0L58 26M0 84L26 58M84 84L58 58M42 0V19.4M42 84V64.6M0 42H19.4M84 42H64.6'/%3E%3C/g%3E%3C/svg%3E");
+  /* Fries aus kleinen Sternen und Rauten (Fliesenband) */
+  --muster-fries: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='18' viewBox='0 0 36 18'%3E%3Crect width='36' height='18' fill='%230d1830'/%3E%3Cpath d='M9 1l2.5 5.5L17 9l-5.5 2.5L9 17l-2.5-5.5L1 9l5.5-2.5z' fill='%23d6a84c'/%3E%3Cpath d='M27 4l5 5-5 5-5-5z' fill='%23c0603f'/%3E%3Ccircle cx='27' cy='9' r='1.6' fill='%232b8a7e'/%3E%3C/svg%3E");
+  /* Hufeisenbogen als Maske (normiert auf 300 x 400) */
+  --maske-bogen: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 400' preserveAspectRatio='none'%3E%3Cpath d='M22 400V222A150 150 0 1 1 278 222V400Z'/%3E%3C/svg%3E");
+}
+
+/* ---------- Grundfläche ---------- */
+.reveal-viewport {
+  background-color: var(--nacht);
+  background-image:
+    radial-gradient(ellipse at 50% 40%, rgba(29, 50, 96, 0.85), rgba(13, 24, 48, 1) 75%);
+}
+
+.reveal {
+  font-family: var(--schrift-text);
+  font-size: 30px;
+  color: var(--elfenbein);
+  line-height: 1.4;
+}
+
+.reveal .slides section {
+  text-align: left;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 64px 80px 56px;
+}
+
+/* Sternmuster ganz zart im Hintergrund + Fliesenband oben/unten */
+.reveal .slides section:not(.stack)::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--muster-stern);
+  background-size: 84px;
+  opacity: 0.07;
+  pointer-events: none;
+}
+.reveal .slides section:not(.stack)::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 18px;
+  background-image: var(--muster-fries);
+  background-size: 36px 18px;
+  border-top: 1px solid var(--gold);
+  opacity: 0.9;
+  pointer-events: none;
+}
+.reveal .slides section.ohne-fries::after { display: none; }
+
+/* ---------- Typografie ---------- */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: var(--schrift-titel);
+  color: var(--gold-hell);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  text-transform: none;
+  margin: 0 0 0.35em;
+  line-height: 1.08;
+}
+.reveal h1 { font-size: 2.9em; }
+.reveal h2 { font-size: 1.9em; }
+.reveal h3 { font-size: 1.15em; color: var(--gold); }
+
+.reveal .kicker {
+  font-family: var(--schrift-text);
+  font-size: 0.6em;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--terrakotta);
+  margin-bottom: 0.5em;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+}
+.reveal .kicker::before {
+  content: '';
+  width: 14px; height: 14px;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+.reveal p { margin: 0 0 0.6em; }
+.reveal strong { color: var(--gold-hell); font-weight: 600; }
+.reveal em { color: var(--elfenbein-2); }
+.reveal .ar {
+  font-family: var(--schrift-arabisch);
+  direction: rtl;
+  unicode-bidi: isolate;
+  color: var(--gold);
+}
+.reveal .klein { font-size: 0.72em; color: var(--elfenbein-2); }
+.reveal .sehr-klein { font-size: 0.5em; color: var(--elfenbein-2); line-height: 1.35; }
+
+/* Listen mit Stern statt Punkt */
+.reveal ul { list-style: none; margin: 0; padding: 0; }
+.reveal ul li {
+  position: relative;
+  padding-left: 1.2em;
+  margin-bottom: 0.45em;
+}
+.reveal ul li::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0.42em;
+  width: 0.55em; height: 0.55em;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+
+/* Trennornament */
+.reveal .ornament {
+  height: 18px;
+  width: 220px;
+  background-image: var(--muster-fries);
+  background-size: 36px 18px;
+  margin: 0.5em 0 0.8em;
+  border-radius: 2px;
+}
+
+/* ---------- Layout-Bausteine ---------- */
+.reveal .zwei-spalten {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: center;
+  height: calc(100% - 20px);
+}
+.reveal .zwei-spalten.bild-links { grid-template-columns: 0.9fr 1.1fr; }
+.reveal .zwei-spalten.text-breit { grid-template-columns: 1.25fr 0.75fr; }
+
+/* Bild im Hufeisenbogen mit goldenem Rahmen */
+.reveal .bogen {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  max-height: 560px;
+  margin: 0 auto;
+}
+.reveal .bogen::before {
+  /* goldener Rahmen = etwas größere Maske dahinter */
+  content: '';
+  position: absolute;
+  inset: -8px;
+  background: linear-gradient(160deg, var(--gold-hell), var(--gold) 40%, #8f6a26);
+  -webkit-mask: var(--maske-bogen) center / 100% 100% no-repeat;
+  mask: var(--maske-bogen) center / 100% 100% no-repeat;
+}
+.reveal .bogen img {
+  position: relative;
+  display: block;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  margin: 0;
+  -webkit-mask: var(--maske-bogen) center / 100% 100% no-repeat;
+  mask: var(--maske-bogen) center / 100% 100% no-repeat;
+}
+.reveal .bildquelle {
+  font-size: 0.4em;
+  color: var(--elfenbein-2);
+  opacity: 0.8;
+  margin-top: 14px;
+  text-align: center;
+}
+
+/* Panel (für Text auf Vollbild-Hintergrund) */
+.reveal .panel {
+  background: rgba(13, 24, 48, 0.86);
+  border: 1px solid rgba(214, 168, 76, 0.6);
+  outline: 1px solid rgba(214, 168, 76, 0.35);
+  outline-offset: 6px;
+  padding: 28px 36px 20px;
+  max-width: 600px;
+  font-size: 0.92em;
+  backdrop-filter: blur(3px);
+}
+.reveal .panel.rechts { margin-left: auto; }
+
+.reveal .foto-quelle-ecke {
+  position: absolute;
+  right: 24px; bottom: 26px;
+  font-size: 0.4em;
+  color: rgba(244, 234, 212, 0.85);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Faktenzeile */
+.reveal .fakten {
+  display: flex;
+  gap: 18px;
+  margin-top: 0.8em;
+}
+.reveal .fakt {
+  flex: 1;
+  border-top: 2px solid var(--gold);
+  padding-top: 8px;
+}
+.reveal .fakt b {
+  display: block;
+  font-family: var(--schrift-titel);
+  font-size: 1.6em;
+  color: var(--gold-hell);
+  line-height: 1;
+}
+.reveal .fakt span { font-size: 0.6em; color: var(--elfenbein-2); }
+
+/* Zitat */
+.reveal blockquote {
+  width: auto;
+  margin: 0.8em 0 0;
+  padding: 0.6em 0.9em;
+  border-left: 3px solid var(--terrakotta);
+  background: rgba(192, 96, 63, 0.12);
+  box-shadow: none;
+  font-family: var(--schrift-titel);
+  font-style: italic;
+  font-size: 0.95em;
+  color: var(--elfenbein);
+}
+.reveal blockquote cite {
+  display: block;
+  font-family: var(--schrift-text);
+  font-style: normal;
+  font-size: 0.6em;
+  color: var(--elfenbein-2);
+  margin-top: 0.4em;
+}
+
+/* ---------- Titelfolie ---------- */
+.reveal .titel-inhalt { max-width: 760px; padding-top: 70px; }
+.reveal .titel-inhalt h1 { font-size: 3.6em; margin-bottom: 0.05em; }
+.reveal .titel-inhalt .ar { font-size: 2.1em; line-height: 1.2; display: block; text-align: left; direction: ltr; }
+.reveal .titel-inhalt .untertitel {
+  font-family: var(--schrift-titel);
+  font-size: 1.35em;
+  font-style: italic;
+  color: var(--elfenbein);
+}
+.reveal .titel-inhalt .autor { font-size: 0.65em; color: var(--elfenbein-2); letter-spacing: 0.06em; }
+
+/* ---------- Leitfrage / Gliederung ---------- */
+.reveal .leitfrage {
+  font-family: var(--schrift-titel);
+  font-size: 1.55em;
+  line-height: 1.2;
+  color: var(--elfenbein);
+  border: 1px solid var(--gold);
+  outline: 1px solid rgba(214, 168, 76, 0.4);
+  outline-offset: 7px;
+  padding: 0.6em 0.9em;
+  margin: 0.3em 0 1.1em;
+  position: relative;
+}
+.reveal .leitfrage strong { color: var(--gold-hell); font-weight: 700; }
+.reveal .gliederung {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+.reveal .gliederung div {
+  border-top: 2px solid var(--terrakotta);
+  padding-top: 12px;
+  font-size: 0.92em;
+}
+.reveal .gliederung b {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--schrift-titel);
+  font-size: 1.9em;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.reveal .gliederung b .ar { font-size: 0.75em; opacity: 0.75; }
+
+/* ---------- Zeitstrahl ---------- */
+.reveal .zeitstrahl {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+  margin-top: 70px;
+}
+.reveal .zeitstrahl::before {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 13px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--tuerkis), var(--gold) 50%, var(--terrakotta));
+}
+.reveal .zeitstrahl .punkt { position: relative; padding-top: 44px; }
+.reveal .zeitstrahl .punkt::before {
+  content: '';
+  position: absolute;
+  top: 2px; left: 0;
+  width: 24px; height: 24px;
+  background: var(--gold);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+.reveal .zeitstrahl .punkt.ende::before { background: var(--terrakotta); }
+.reveal .zeitstrahl .jahr {
+  font-family: var(--schrift-titel);
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--gold-hell);
+  line-height: 1;
+}
+.reveal .zeitstrahl .was { font-size: 0.56em; line-height: 1.3; margin-top: 6px; }
+.reveal .zeitstrahl .punkt:nth-child(even) { margin-top: 0; }
+
+.reveal .zeitstrahl-fazit {
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.reveal .zeitstrahl-fazit .zahl {
+  font-family: var(--schrift-titel);
+  font-size: 3.2em;
+  font-weight: 700;
+  color: var(--gold-hell);
+  line-height: 1;
+}
+
+/* ---------- Bauelemente-Karten ---------- */
+.reveal .karten {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+  margin-top: 18px;
+}
+.reveal .karte { text-align: center; }
+.reveal .karte .bogen { max-height: 270px; }
+.reveal .karte h3 { margin: 16px 0 4px; font-size: 0.95em; color: var(--gold-hell); }
+.reveal .karte p { font-size: 0.52em; line-height: 1.35; color: var(--elfenbein-2); margin: 0; }
+
+/* ---------- Sprach-Tabelle ---------- */
+.reveal .woerter { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 42px; }
+.reveal .wort {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: baseline;
+  column-gap: 14px;
+  border-bottom: 1px solid rgba(214, 168, 76, 0.25);
+  padding: 6px 0;
+  font-size: 0.72em;
+}
+.reveal .woerter .wort:nth-child(even) { grid-template-columns: 205px 1fr; }
+.reveal .wort b { font-family: var(--schrift-titel); font-size: 1.45em; color: var(--gold-hell); font-weight: 700; }
+.reveal .wort i { color: var(--elfenbein-2); font-style: normal; }
+.reveal .wort .herkunft { color: var(--terrakotta); font-weight: 600; font-style: italic; }
+.reveal .spaltenkopf {
+  font-size: 0.55em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--terrakotta);
+  font-weight: 600;
+  grid-column: span 1;
+  margin-top: 4px;
+}
+.reveal .tipp {
+  margin-top: 22px;
+  font-size: 0.66em;
+  background: rgba(43, 138, 126, 0.16);
+  border-left: 3px solid var(--tuerkis);
+  padding: 10px 16px;
+}
+
+/* ---------- Köpfe (Wissenschaft) ---------- */
+.reveal .koepfe { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin: 14px 0 18px; }
+.reveal .kopf {
+  border: 1px solid rgba(214, 168, 76, 0.45);
+  padding: 14px 16px;
+  background: rgba(21, 38, 74, 0.7);
+}
+.reveal .kopf b { display: block; font-family: var(--schrift-titel); font-size: 1.05em; color: var(--gold-hell); }
+.reveal .kopf small { display: block; font-size: 0.5em; color: var(--terrakotta); letter-spacing: 0.08em; margin-bottom: 4px; }
+.reveal .kopf span { font-size: 0.56em; line-height: 1.35; display: block; }
+
+/* ---------- Fazit-Kacheln ---------- */
+.reveal .fazit-kacheln { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 10px 0 26px; }
+.reveal .kachel {
+  border: 1px solid var(--gold);
+  padding: 18px 18px 14px;
+  background: rgba(21, 38, 74, 0.75);
+  position: relative;
+}
+.reveal .kachel .sinn {
+  font-family: var(--schrift-titel);
+  font-size: 1.35em;
+  font-weight: 700;
+  color: var(--gold-hell);
+}
+.reveal .kachel p { font-size: 0.58em; margin: 6px 0 0; line-height: 1.35; }
+.reveal .kachel::after {
+  content: '';
+  position: absolute;
+  top: -9px; right: 14px;
+  width: 18px; height: 18px;
+  background: var(--terrakotta);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+}
+.reveal .antwort {
+  font-family: var(--schrift-titel);
+  font-size: 1.3em;
+  line-height: 1.25;
+  border-left: 3px solid var(--gold);
+  padding-left: 22px;
+}
+
+/* ---------- Quellen ---------- */
+.reveal .quellen li { font-size: 0.58em; margin-bottom: 0.5em; }
+.reveal .bildnachweis {
+  columns: 2;
+  column-gap: 40px;
+  font-size: 0.44em;
+  line-height: 1.4;
+  color: var(--elfenbein-2);
+}
+.reveal .bildnachweis div { break-inside: avoid; margin-bottom: 6px; }
+.reveal .bildnachweis b { color: var(--gold-hell); font-weight: 600; }
+.reveal a { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold); }
+
+/* ---------- reveal.js-Steuerelemente ---------- */
+.reveal .controls { color: var(--gold); }
+.reveal .progress { color: var(--gold); height: 4px; }
+.reveal .slide-number {
+  background: transparent;
+  color: var(--gold);
+  font-family: var(--schrift-titel);
+  font-size: 18px;
+  bottom: 26px;
+  right: 22px;
+}
+.reveal .slide-background { background-color: var(--nacht); }
+
+/* Fragmente: weich einblenden */
+.reveal .fragment.einblenden { opacity: 0; transform: translateY(14px); transition: all 0.45s ease; }
+.reveal .fragment.einblenden.visible { opacity: 1; transform: none; }
+
+/* Druckansicht (PDF-Export über ?print-pdf) */
+html.reveal-print .reveal .slides section:not(.stack) {
+  padding: 64px 80px 56px !important;
+  width: 1280px !important;
+  height: 720px !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+@media print {
+  .reveal .slides section .fragment { opacity: 1 !important; visibility: visible !important; transform: none !important; }
+}
+
+/* ---------- Verlauf über Hintergrundfotos ---------- */
+.reveal .verlauf { position: absolute; inset: 0; pointer-events: none; }
+.reveal .titel-inhalt, .reveal .panel, .reveal .ebene { position: relative; }

@@ -1,0 +1,1 @@
+import{rt as e}from"./modules/shiki-C_MmXx-G.js";var t=e({runden:{}});function n(e,n){e in t.runden||(t.runden[e]=n)}function r(){t.runden={}}export{n,r,t};

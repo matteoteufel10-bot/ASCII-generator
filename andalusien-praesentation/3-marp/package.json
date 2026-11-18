@@ -1,0 +1,12 @@
+{
+  "name": "andalusien-handout",
+  "private": true,
+  "scripts": {
+    "pdf": "marp handout.md --theme maurisch-handout.css --html --pdf --allow-local-files -o handout.pdf",
+    "html": "marp handout.md --theme maurisch-handout.css --html -o handout.html",
+    "vorschau": "marp handout.md --theme maurisch-handout.css --html --preview"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "4.5.1"
+  }
+}
